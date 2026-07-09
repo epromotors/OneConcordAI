@@ -230,12 +230,6 @@
             <button class="ag-btn-ghost" onclick="go(\'pricing\')">See pricing →</button>\
           </div>\
         </div>\
-        <div class="ag-hero-right">\
-          <div class="ag-live-panel">\
-            <div class="ag-live-label"><span class="ag-live-dot"></span>Platform Capabilities</div>\
-            <div class="ag-metric-row" id="ag-metrics-area"></div>\
-          </div>\
-        </div>\
       </div>';
 
     // Build live metrics
