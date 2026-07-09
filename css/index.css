@@ -300,24 +300,28 @@ nav { display: flex; align-items: center; gap: 1.8rem; }
   display: inline-flex; align-items: center; justify-content: center; padding: 4px; transition: color .15s ease;
 }
 .mob-close:hover { color: var(--text-1); }
-.mob-nav { display: flex; flex-direction: column; gap: 4px; }
+/* MOBILE NAV LINKS */
+.mob-nav { display: flex; flex-direction: column; gap: 6px; }
 .mob-a {
   display: block;
-  font-size: 22px; font-weight: 700; color: #CBD5E1; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.06); cursor: pointer; transition: color .15s;
+  font-size: 26px; font-weight: 700; color: #E2E8F0; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.05); cursor: pointer; transition: color .15s;
   background: none; border-right: none; border-left: none; border-top: none; text-align: left;
+  letter-spacing: -0.5px;
 }
+.mob-a:hover { color: var(--accent); }
 .mob-menu-divider {
   border: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin: 30px 0 20px 0;
+  margin: 40px 0 25px 0;
   width: 100%;
 }
 .mob-menu-socials {
   display: flex;
-  gap: 20px;
   align-items: center;
-  justify-content: flex-start;
-  padding: 5px 0;
+  justify-content: space-between;
+  width: 70%;
+  max-width: 320px;
+  padding: 10px 0;
 }
 .mob-social-link {
   color: #94A3B8;
@@ -326,11 +330,14 @@ nav { display: flex; align-items: center; gap: 1.8rem; }
   align-items: center;
   justify-content: center;
 }
+.mob-social-link svg {
+  width: 24px !important;
+  height: 24px !important;
+}
 .mob-social-link:hover {
   color: var(--accent);
   transform: translateY(-2px);
 }
-.mob-a:hover { color: var(--accent); }
 
 /* ─── HERO ─── */
 .hero {
