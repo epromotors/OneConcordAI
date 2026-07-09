@@ -223,16 +223,12 @@
 
   <div class="mob-menu" id="mobMenu">
 
-    <div class="mob-menu-head">
-
-      <div class="logo">
-
+        <div class="mob-menu-head">
+      <a href="index.html" class="logo" data-pg="home" onclick="toggleMob();">
         <img src="Logo.svg" alt="OneConcord AI" />
-
-      </div>
-
-      <button class="mob-close" onclick="toggleMob()">✕</button>
-
+        <span>OneConcord <b style="color:var(--text-1);font-weight:800;">AI</b></span>
+      </a>
+      <button class="mob-close" onclick="toggleMob()" aria-label="Close menu"><i data-lucide="x" style="width:24px;height:24px;"></i></button>
     </div>
 
     <div class="mob-nav" id="mobLinks">
