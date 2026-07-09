@@ -5293,3 +5293,67 @@ body {
     margin-top: 24px !important;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════
+   UNIFIED HERO TYPOGRAPHY FOR INNER/SUB-PAGES
+   Forces titles and descriptions of all inner pages to match
+   the Home Page (index.html) responsive font sizes.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Titles ── */
+.page-hero h1,
+.pricing-stars-wrap h1,
+#ag-hero .ag-hero-heading {
+  font-size: clamp(2.5rem, 5.2vw, 4.2rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -1.5px !important;
+}
+
+@media (max-width: 1366px) {
+  .page-hero h1,
+  .pricing-stars-wrap h1,
+  #ag-hero .ag-hero-heading {
+    font-size: clamp(2.1rem, 4.2vw, 3.5rem) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-hero h1,
+  .pricing-stars-wrap h1,
+  #ag-hero .ag-hero-heading {
+    font-size: clamp(2rem, 8vw, 2.8rem) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero h1,
+  .pricing-stars-wrap h1,
+  #ag-hero .ag-hero-heading {
+    font-size: clamp(1.9rem, 7.5vw, 2.5rem) !important;
+  }
+}
+
+/* ── 2. Descriptions ── */
+.page-hero p.lead,
+.pricing-stars-wrap p.lead,
+#ag-hero .ag-hero-sub {
+  font-size: 1.02rem !important;
+  line-height: 1.75 !important;
+  max-width: 560px !important;
+}
+
+.pricing-stars-wrap p.lead {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media (max-width: 768px) {
+  .page-hero p.lead,
+  .pricing-stars-wrap p.lead,
+  #ag-hero .ag-hero-sub {
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
