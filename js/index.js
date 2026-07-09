@@ -435,7 +435,13 @@ function toggleMob() {
   var menu = document.getElementById('mobMenu');
   if (menu) {
     var isOpen = menu.classList.toggle('open');
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      document.body.classList.add('menu-open');
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.classList.remove('menu-open');
+      document.body.style.overflow = '';
+    }
   }
 
 }
