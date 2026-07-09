@@ -1671,42 +1671,105 @@
     font-size: 10px;
   }
   
-  /* Qount-style interactive hub section mobile grid */
+  /* Qount-style interactive hub section mobile radial design */
   .q-hub-visual-container {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
-    height: auto !important;
-    width: 100% !important;
-    padding: 20px 0 !important;
+    display: flex !important;
+    position: relative !important;
+    width: 320px !important;
+    height: 320px !important;
+    margin: 30px auto !important;
+    padding: 0 !important;
   }
   .q-hub-cube-scene {
-    grid-column: span 2 !important;
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
-    margin: 0 auto 20px !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90px !important;
+    height: 90px !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10 !important;
+  }
+  .q-hub-logo {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  .q-hub-cube-glow {
+    width: 100px !important;
+    height: 100px !important;
   }
   .q-hub-svg-lines {
-    display: none !important;
+    display: block !important;
   }
   .q-floating-card {
-    position: relative !important;
-    top: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-    right: auto !important;
+    position: absolute !important;
+    width: 100px !important;
+    padding: 6px 8px !important;
+    gap: 4px !important;
+    border-radius: 8px !important;
     transform: none !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
     box-sizing: border-box !important;
   }
-  .q-floating-card:hover,
-  .q-floating-card.active {
-    transform: scale(1.02) !important;
+  .q-wide-card {
+    width: 100px !important;
   }
+  .q-fc-icon-wrap {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 11px !important;
+  }
+  .q-fc-icon-wrap svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+  .q-fc-content {
+    min-width: 0;
+  }
+  .q-fc-name {
+    font-size: 8px !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    font-weight: 700 !important;
+  }
+  .q-fc-domain {
+    font-size: 6.5px !important;
+    margin-top: 1px !important;
+  }
+  .pos-tl {
+    top: 10% !important;
+    left: -15px !important;
+  }
+  .pos-tr {
+    top: 10% !important;
+    right: -15px !important;
+  }
+  .pos-ml {
+    top: 50% !important;
+    left: -25px !important;
+    transform: translateY(-50%) !important;
+  }
+  .pos-mr {
+    top: 50% !important;
+    right: -25px !important;
+    transform: translateY(-50%) !important;
+  }
+  .pos-bl {
+    bottom: 10% !important;
+    left: -15px !important;
+  }
+  .pos-br {
+    bottom: 10% !important;
+    right: -15px !important;
+  }
+  .pos-tl:hover, .pos-tl.active { transform: scale(1.04) !important; }
+  .pos-tr:hover, .pos-tr.active { transform: scale(1.04) !important; }
+  .pos-ml:hover, .pos-ml.active { transform: translateY(-50%) scale(1.04) !important; }
+  .pos-mr:hover, .pos-mr.active { transform: translateY(-50%) scale(1.04) !important; }
+  .pos-bl:hover, .pos-bl.active { transform: scale(1.04) !important; }
+  .pos-br:hover, .pos-br.active { transform: scale(1.04) !important; }
 }
 
 @media (max-width: 480px) {
@@ -1715,17 +1778,46 @@
   .ag-wf-name    { font-size: 11px; }
   
   .q-hub-visual-container {
-    grid-template-columns: 1fr !important;
+    width: 290px !important;
+    height: 290px !important;
+    margin: 20px auto !important;
+    display: flex !important;
   }
-  .q-hub-cube-scene {
-    grid-column: span 1 !important;
+  .q-floating-card {
+    width: 90px !important;
+    padding: 5px 6px !important;
   }
-  
-  .q-hub-cube { width: 70px; height: 70px; }
-  .q-cube-face { width: 70px; height: 70px; }
-  .q-face-top  { transform: rotateX(90deg) translateZ(35px); }
-  .q-face-left { transform: rotateY(-90deg) translateZ(35px); }
-  .q-face-right{ transform: translateZ(35px); }
+  .q-wide-card {
+    width: 90px !important;
+  }
+  .q-fc-name {
+    font-size: 7.5px !important;
+  }
+  .q-fc-domain {
+    font-size: 6px !important;
+  }
+  .pos-tl {
+    top: 8% !important;
+    left: -20px !important;
+  }
+  .pos-tr {
+    top: 8% !important;
+    right: -20px !important;
+  }
+  .pos-ml {
+    left: -28px !important;
+  }
+  .pos-mr {
+    right: -28px !important;
+  }
+  .pos-bl {
+    bottom: 8% !important;
+    left: -20px !important;
+  }
+  .pos-br {
+    bottom: 8% !important;
+    right: -20px !important;
+  }
 }
 
 
