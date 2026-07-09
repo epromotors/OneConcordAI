@@ -225,10 +225,6 @@
             <span class="word"><span style="--wi:5">agents.</span></span>\
           </h1>\
           <p class="ag-hero-sub">OneConcord brings twelve specialized agents into the core of the enterprise, where they execute within governance, collaborate across functions, and move work forward.</p>\
-          <div class="ag-hero-actions">\
-            <button class="ag-btn-primary" onclick="go(\'contact\')">Book a live demo ↗</button>\
-            <button class="ag-btn-ghost" onclick="go(\'pricing\')">See pricing →</button>\
-          </div>\
         </div>\
       </div>';
 
