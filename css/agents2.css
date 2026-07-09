@@ -27,34 +27,10 @@
   position: relative;
 }
 
-/* ─── HERO ────────────────────────────────────────────────────────────── */
 #ag-hero {
   position: relative;
-  padding: 110px 0 80px;
+  padding: 120px 0 80px;
   overflow: hidden;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(181, 242, 219, 0.12) 0%, transparent 70%),
-              radial-gradient(ellipse 60% 40% at 80% 30%, rgba(4, 47, 52, 0.4) 0%, transparent 60%);
-}
-
-/* Noise/grain overlay */
-#ag-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  opacity: 0.4;
-}
-
-/* Dot grid background */
-#ag-hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 20%, transparent 100%);
-  pointer-events: none;
 }
 
 .ag-hero-inner {

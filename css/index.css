@@ -5365,7 +5365,10 @@ body {
    ════════════════════════════════════════════════════════════════════ */
 
 /* ── 1. Page Hero (.page-hero) Centering ── */
-.page-hero .container {
+.page-hero .container,
+.pricing-stars-wrap .container {
+  position: relative !important;
+  z-index: 3 !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
