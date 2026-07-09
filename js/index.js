@@ -360,6 +360,10 @@ function go(id) {
 
   document.querySelectorAll('.nav-a[data-pg="' + id + '"]').forEach(function(a) { a.classList.add('act'); });
 
+  // Update active state in mobile menu
+  document.querySelectorAll('.menu-item').forEach(function(li) { li.classList.remove('active'); });
+  document.querySelectorAll('.menu-item[data-menu-page="' + id + '"]').forEach(function(li) { li.classList.add('active'); });
+
 
 
   if (isStaticPageMode()) {
@@ -519,54 +523,109 @@ function buildNav() {
 
     mobLinks.innerHTML = '';
 
-    ['Home|home','Platform|platform','Agents|agents','Solutions|solutions','Pricing|pricing','About|about','Contact|contact'].forEach(function(pair){
+    var ul = document.createElement('ul');
+    ul.className = 'menu-list';
 
-      var parts = pair.split('|');
+    var items = [
+      { label: 'Home', page: 'home', desc: 'Start here' },
+      { label: 'Platform', page: 'platform', desc: 'Capabilities' },
+      { label: 'Agents', page: 'agents', desc: 'AI systems' },
+      { label: 'Solutions', page: 'solutions', desc: 'Use cases' },
+      { label: 'Pricing', page: 'pricing', desc: 'Plans' },
+      { label: 'About', page: 'about', desc: 'Company' },
+      { label: 'Contact', page: 'contact', desc: 'Get in touch' }
+    ];
 
-      var btn = document.createElement('a');
+    // Determine current active page
+    var activePage = getStaticPageId() || (window.location.hash.replace('#','') || 'home');
 
-      btn.className = 'mob-a'; btn.textContent = parts[0]; btn.href = pageUrl(parts[1]);
+    items.forEach(function(item) {
+      var li = document.createElement('li');
+      li.className = 'menu-item';
+      if (item.page === activePage) {
+        li.classList.add('active');
+      }
+      li.setAttribute('data-menu-page', item.page);
 
-      btn.onclick = function(e) {
-        if (!isStaticPageMode() || getStaticPageId() === parts[1]) {
+      var a = document.createElement('a');
+      a.href = pageUrl(item.page);
+      
+      var span = document.createElement('span');
+      span.textContent = item.label;
+      
+      var small = document.createElement('small');
+      small.textContent = item.desc;
+
+      a.appendChild(span);
+      a.appendChild(small);
+
+      a.onclick = function(e) {
+        if (!isStaticPageMode() || getStaticPageId() === item.page) {
           e.preventDefault();
-          go(parts[1]);
+          go(item.page);
           toggleMob();
         }
       };
 
-      mobLinks.appendChild(btn);
-
+      li.appendChild(a);
+      ul.appendChild(li);
     });
 
-    // Add divider and social media icons below menu items
-    var divider = document.createElement('div');
-    divider.className = 'mob-menu-divider';
-    mobLinks.appendChild(divider);
+    mobLinks.appendChild(ul);
 
-    var socialContainer = document.createElement('div');
-    socialContainer.className = 'mob-menu-socials';
+    // Append CTA Block
+    var ctaBlock = document.createElement('div');
+    ctaBlock.className = 'cta-block';
+
+    var demoBtn = document.createElement('a');
+    demoBtn.className = 'button button-primary';
+    demoBtn.textContent = 'Book Demo';
+    demoBtn.href = pageUrl('contact');
+    demoBtn.onclick = function(e) {
+      if (!isStaticPageMode() || getStaticPageId() === 'contact') {
+        e.preventDefault();
+        go('contact');
+        toggleMob();
+      }
+    };
+
+    var contactBtn = document.createElement('a');
+    contactBtn.className = 'button button-secondary';
+    contactBtn.textContent = 'Contact Sales';
+    contactBtn.href = pageUrl('contact');
+    contactBtn.onclick = function(e) {
+      if (!isStaticPageMode() || getStaticPageId() === 'contact') {
+        e.preventDefault();
+        go('contact');
+        toggleMob();
+      }
+    };
+
+    // Socials
+    var socialNav = document.createElement('nav');
+    socialNav.className = 'socials';
+    socialNav.setAttribute('aria-label', 'Social links');
 
     var socials = [
       {
         href: 'https://www.linkedin.com/company/oneconcord-ai',
         aria: 'LinkedIn',
-        svg: '<svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;display:block;"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>'
+        svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A2.03 2.03 0 0 0 3.2 5.03 2.03 2.03 0 0 0 5.22 7.06h.03A2.04 2.04 0 0 0 7.3 5.03 2.03 2.03 0 0 0 5.28 3h-.03ZM20 12.86c0-3.47-1.86-5.08-4.34-5.08-2 0-2.89 1.11-3.39 1.89V8.5H8.9c.04.78 0 11.5 0 11.5h3.38v-6.42c0-.34.03-.68.13-.92.27-.68.88-1.39 1.9-1.39 1.34 0 1.88 1.02 1.88 2.52V20H20v-7.14Z"/></svg>'
       },
       {
         href: 'https://x.com/oneconcord_ai',
         aria: 'X (Twitter)',
-        svg: '<svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;display:block;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>'
+        svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.77 7.74L23 22h-6.11l-4.78-6.27L6.62 22H3.5l7.24-8.27L1 2h6.27l4.32 5.7L18.9 2Zm-1.07 18h1.72L6.33 3.9H4.49L17.83 20Z"/></svg>'
       },
       {
         href: 'https://www.instagram.com/oneconcord_ai/',
         aria: 'Instagram',
-        svg: '<svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;display:block;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>'
+        svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>'
       },
       {
         href: 'https://www.youtube.com/@OneConcord_AI',
         aria: 'YouTube',
-        svg: '<svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;display:block;"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>'
+        svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.58 7.19a2.84 2.84 0 0 0-2-2C17.82 4.7 12 4.7 12 4.7s-5.82 0-7.58.49a2.84 2.84 0 0 0-2 2A29.2 29.2 0 0 0 2 12a29.2 29.2 0 0 0 .42 4.81 2.84 2.84 0 0 0 2 2c1.76.49 7.58.49 7.58.49s5.82 0 7.58-.49a2.84 2.84 0 0 0 2-2A29.2 29.2 0 0 0 22 12a29.2 29.2 0 0 0-.42-4.81ZM10 15.46V8.54L16 12l-6 3.46Z"/></svg>'
       }
     ];
 
@@ -574,13 +633,16 @@ function buildNav() {
       var a = document.createElement('a');
       a.href = soc.href;
       a.target = '_blank';
-      a.className = 'mob-social-link';
       a.setAttribute('aria-label', soc.aria);
       a.innerHTML = soc.svg;
-      socialContainer.appendChild(a);
+      socialNav.appendChild(a);
     });
 
-    mobLinks.appendChild(socialContainer);
+    ctaBlock.appendChild(demoBtn);
+    ctaBlock.appendChild(contactBtn);
+    ctaBlock.appendChild(socialNav);
+
+    mobLinks.appendChild(ctaBlock);
 
   }
 

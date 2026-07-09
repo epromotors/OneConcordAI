@@ -221,21 +221,21 @@
 
   <!-- ════════════════════════════════════════ MOBILE MENU -->
 
-  <div class="mob-menu" id="mobMenu">
-
-            <div class="mob-menu-head">
-      <a href="index.html" class="logo" data-pg="home" onclick="toggleMob();">
-        <img src="Logo.svg" alt="OneConcord AI" />
-      </a>
-      <button class="mob-close" onclick="toggleMob()" aria-label="Close menu"><i data-lucide="x" style="width:24px;height:24px;"></i></button>
+    <div class="mob-menu" id="mobMenu">
+    <div class="menu-shell">
+      <header class="topbar">
+        <div class="brand">
+          <a href="index.html" class="logo" data-pg="home" onclick="toggleMob();">
+            <img src="Logo.svg" alt="OneConcord AI" style="height:34px; width:auto; display:block;" />
+          </a>
+        </div>
+        <button class="close-btn" onclick="toggleMob()" aria-label="Close menu">
+          <i data-lucide="x" style="width:20px;height:20px;"></i>
+        </button>
+      </header>
+      <p class="eyebrow">Navigate the platform</p>
+      <div id="mobLinks"></div>
     </div>
-
-    <div class="mob-nav" id="mobLinks">
-
-      <!-- Injected via index.js -->
-
-    </div>
-
   </div>
 
 
