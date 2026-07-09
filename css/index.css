@@ -708,10 +708,36 @@ nav { display: flex; align-items: center; gap: 1.8rem; }
   .timeline-content {
     padding: 1.25rem !important;
   }
+  .timeline-item .timeline-content {
+    order: 1 !important;
+  }
+  .timeline-item .timeline-graphic {
+    order: 2 !important;
+  }
   .illustration-container {
     padding: 1rem !important;
-    height: auto !important;
-    min-height: 180px !important;
+    height: 250px !important;
+    min-height: 250px !important;
+  }
+  .graph-node {
+    padding: 4px 8px !important;
+    font-size: 10px !important;
+  }
+  .graph-node.pos-tl {
+    left: 4% !important;
+    top: 15% !important;
+  }
+  .graph-node.pos-tr {
+    right: 4% !important;
+    top: 15% !important;
+  }
+  .graph-node.pos-bl {
+    left: 4% !important;
+    bottom: 15% !important;
+  }
+  .graph-node.pos-br {
+    right: 4% !important;
+    bottom: 15% !important;
   }
   
   /* Shrink Policy Check elements to fit mobile */
