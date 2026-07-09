@@ -388,12 +388,13 @@
     `;
     document.body.appendChild(btn);
 
-    // Scroll listener to reveal/hide back-to-top
+    // Scroll listener to reveal/hide back-to-top (state cached to prevent redundant layout updates)
+    var wasVisible = false;
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        btn.classList.add('visible');
-      } else {
-        btn.classList.remove('visible');
+      var isVisible = window.scrollY > 400;
+      if (isVisible !== wasVisible) {
+        wasVisible = isVisible;
+        btn.classList.toggle('visible', isVisible);
       }
     }, { passive: true });
 

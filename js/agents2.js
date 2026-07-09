@@ -318,13 +318,23 @@
 
     tabsEl.appendChild(inner);
 
-    // Stuck class toggle on scroll to mask scrolling content and show background
+    // Stuck class toggle on scroll (using requestAnimationFrame to schedule layout queries efficiently)
+    var ticking = false;
     var scrollHandler = function() {
-      var rect = tabsEl.getBoundingClientRect();
-      tabsEl.classList.toggle('stuck', rect.top <= 73);
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          var rect = tabsEl.getBoundingClientRect();
+          tabsEl.classList.toggle('stuck', rect.top <= 73);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     window.addEventListener('scroll', scrollHandler);
-    scrollHandler();
+    
+    // Stuck class toggle initially
+    var initialRect = tabsEl.getBoundingClientRect();
+    tabsEl.classList.toggle('stuck', initialRect.top <= 73);
   }
 
   /* ── FILTER AGENT CARDS ──────────────────────────────────────────────── */
@@ -707,9 +717,9 @@
       });
     }
 
-    // Call sync initially and on resize
+    // Call sync initially and on resize (throttled to 50ms to prevent layout thrashing)
     setTimeout(syncLines, 100);
-    window.addEventListener('resize', syncLines);
+    window.addEventListener('resize', window.oneConcordThrottle ? window.oneConcordThrottle(syncLines, 50) : syncLines);
 
     // Dynamic update left panel
     function updateDetails(idx) {

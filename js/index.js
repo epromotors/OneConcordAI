@@ -8,6 +8,31 @@
 
    ══════════════════════════════════════════════ */
 
+/* ── PERFORMANCE UTILITIES ────────────────────────────────── */
+
+window.oneConcordThrottle = function(func, limit) {
+  var inThrottle;
+  return function() {
+    var args = arguments;
+    var context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(function() { inThrottle = false; }, limit);
+    }
+  };
+};
+
+window.oneConcordDebounce = function(func, delay) {
+  var debounceTimer;
+  return function() {
+    var context = this;
+    var args = arguments;
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(function() { func.apply(context, args); }, delay);
+  };
+};
+
 
 
 /* ── AGENT ICONS ───────────────────────────────────────── */
@@ -1917,9 +1942,9 @@ function buildHome() {
 
 
 
-    // Recalculate on resize
+    // Recalculate on resize (throttled to 50ms to prevent layout thrashing)
 
-    window.addEventListener('resize', drawConnections);
+    window.addEventListener('resize', window.oneConcordThrottle(drawConnections, 50));
 
   }
 
@@ -4470,11 +4495,13 @@ function initSvgLine() {
 
   updatePathDimensions();
 
-  const layoutObserver = new ResizeObserver(() => updatePathDimensions());
+  const throttledUpdatePath = window.oneConcordThrottle(updatePathDimensions, 50);
+
+  const layoutObserver = new ResizeObserver(() => throttledUpdatePath());
 
   layoutObserver.observe(pageContent);
 
-  window.addEventListener("resize", updatePathDimensions);
+  window.addEventListener("resize", throttledUpdatePath);
 
 
 
@@ -4860,7 +4887,7 @@ function initGrcCoreSection() {
 
   setTimeout(drawGrcLines, 100);
 
-  window.addEventListener('resize', drawGrcLines);
+  window.addEventListener('resize', window.oneConcordThrottle(drawGrcLines, 50));
 
 
 
@@ -5280,8 +5307,8 @@ function initMobileTestimonialsSlider() {
     startAutoScroll();
   }
 
-  // Handle window resizing
-  window.addEventListener('resize', () => {
+  // Handle window resizing (debounced to 100ms)
+  window.addEventListener('resize', window.oneConcordDebounce(() => {
     if (window.innerWidth > 768) {
       stopAutoScroll();
       track.style.transform = '';
@@ -5291,7 +5318,7 @@ function initMobileTestimonialsSlider() {
         startAutoScroll();
       }
     }
-  });
+  }, 100));
 }
 
 
@@ -5329,11 +5356,16 @@ document.addEventListener('DOMContentLoaded', function() {
   // 2. Setup menu/scrolling event triggers
 
   const header = document.getElementById('site-header');
+  var lastScrollY = window.scrollY;
+  var isScrolled = lastScrollY > 60;
+  if (header) header.classList.toggle('scrolled', isScrolled);
 
   window.addEventListener('scroll', () => {
-
-    if (header) header.classList.toggle('scrolled', window.scrollY > 60);
-
+    var scrolled = window.scrollY > 60;
+    if (scrolled !== isScrolled) {
+      isScrolled = scrolled;
+      if (header) header.classList.toggle('scrolled', isScrolled);
+    }
   }, { passive: true });
 
 
