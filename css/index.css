@@ -269,6 +269,7 @@ header.scrolled {
   height: 64px;
   width: auto;
   display: block;
+  image-rendering: -webkit-optimize-contrast;
 }
 .logo-mark {
   width: 32px; height: 32px; border-radius: 8px;
