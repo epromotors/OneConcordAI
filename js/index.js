@@ -8,6 +8,11 @@
 
    ══════════════════════════════════════════════ */
 
+/* ── PREVENT BROWSER SCROLL RESTORATION JUMP ──────────────── */
+if (typeof window !== 'undefined' && window.history && window.history.scrollRestoration) {
+  window.history.scrollRestoration = 'manual';
+}
+
 /* ── PERFORMANCE UTILITIES ────────────────────────────────── */
 
 window.oneConcordThrottle = function(func, limit) {
