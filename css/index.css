@@ -4278,14 +4278,17 @@ body {
    ════════════════════════════════════════════════════════════════════ */
 
 /* ── Wrapper: blends from slightly deeper navy into site bg ── */
-.pricing-stars-wrap {
+.pricing-stars-wrap,
+.has-stars-bg {
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg,
     #0d161c 0%,          /* slightly deeper than --bg-0 for depth */
     var(--bg-0) 55%,
     var(--bg-0) 100%
-  );
+  ) !important;
+}
+.pricing-stars-wrap {
   padding: 120px 20px 60px;
   display: flex;
   flex-direction: column;

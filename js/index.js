@@ -4078,6 +4078,35 @@ function initFloating() {
 
 }
 
+function initSubpageStars() {
+  const heroes = document.querySelectorAll('.page-hero, #ag-hero');
+  heroes.forEach(function(hero) {
+    if (hero.dataset.starsBuilt) return;
+    hero.dataset.starsBuilt = '1';
+    
+    hero.classList.add('has-stars-bg');
+
+    const starsSm = document.createElement('div');
+    starsSm.className = 'price-stars price-stars-sm';
+    const starsMd = document.createElement('div');
+    starsMd.className = 'price-stars price-stars-md';
+    const starsLg = document.createElement('div');
+    starsLg.className = 'price-stars price-stars-lg';
+
+    const globeWrap = document.createElement('div');
+    globeWrap.className = 'pricing-globe-wrap';
+    globeWrap.innerHTML = `
+      <div class="pricing-globe"></div>
+      <div class="pricing-globe-glow"></div>
+    `;
+
+    hero.prepend(globeWrap);
+    hero.prepend(starsLg);
+    hero.prepend(starsMd);
+    hero.prepend(starsSm);
+  });
+}
+
 
 
 function initHero() {
@@ -5351,6 +5380,8 @@ document.addEventListener('DOMContentLoaded', function() {
   initCards();
 
   initFloating();
+
+  initSubpageStars();
 
   initHero();
 
