@@ -212,6 +212,7 @@
     var heroEl = document.getElementById('ag-hero');
     if (!heroEl || heroEl.dataset.built) return;
     heroEl.dataset.built = '1';
+    delete heroEl.dataset.starsBuilt;
 
     heroEl.innerHTML = '\
       <div class="ag-hero-inner">\
