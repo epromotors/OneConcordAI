@@ -1574,43 +1574,8 @@
   }
 }
 
-@media (max-width: 580px) {
-  .q-hub-visual-container {
-    width: 100%;
-    height: 480px;
-  }
 
-  .q-floating-card {
-    width: 140px;
-    padding: 8px 12px;
-    gap: 8px;
-  }
 
-  .q-wide-card {
-    width: 180px; /* Scaled down for mobile */
-  }
-
-  .q-fc-name {
-    font-size: 11px;
-  }
-
-  .q-fc-domain {
-    font-size: 8.5px;
-  }
-
-  .q-fc-icon-wrap {
-    width: 26px;
-    height: 26px;
-    font-size: 13px;
-  }
-
-  .pos-ml { left: -10px; }
-  .pos-mr { right: -10px; }
-  .pos-tl { left: 5px; }
-  .pos-tr { right: 5px; }
-  .pos-bl { left: 5px; }
-  .pos-br { right: 5px; }
-}
 
 
 /* ── AGENTS PAGE MOBILE EXTRAS ── */
@@ -1706,7 +1671,7 @@
   }
   .q-floating-card {
     position: absolute !important;
-    width: 100px !important;
+    width: 110px !important;
     padding: 6px 8px !important;
     gap: 4px !important;
     border-radius: 8px !important;
@@ -1714,7 +1679,7 @@
     box-sizing: border-box !important;
   }
   .q-wide-card {
-    width: 100px !important;
+    width: 110px !important;
   }
   .q-fc-icon-wrap {
     width: 22px !important;
@@ -1729,40 +1694,41 @@
     min-width: 0;
   }
   .q-fc-name {
-    font-size: 8px !important;
-    line-height: 1.2 !important;
+    font-size: 10.5px !important;
+    line-height: 1.25 !important;
     white-space: normal !important;
     font-weight: 700 !important;
+    color: #fff !important;
   }
   .q-fc-domain {
-    font-size: 6.5px !important;
-    margin-top: 1px !important;
+    font-size: 8px !important;
+    margin-top: 2px !important;
   }
   .pos-tl {
     top: 10% !important;
-    left: -15px !important;
+    left: 2px !important;
   }
   .pos-tr {
     top: 10% !important;
-    right: -15px !important;
+    right: 2px !important;
   }
   .pos-ml {
     top: 50% !important;
-    left: -25px !important;
+    left: -8px !important;
     transform: translateY(-50%) !important;
   }
   .pos-mr {
     top: 50% !important;
-    right: -25px !important;
+    right: -8px !important;
     transform: translateY(-50%) !important;
   }
   .pos-bl {
     bottom: 10% !important;
-    left: -15px !important;
+    left: 2px !important;
   }
   .pos-br {
     bottom: 10% !important;
-    right: -15px !important;
+    right: 2px !important;
   }
   .pos-tl:hover, .pos-tl.active { transform: scale(1.04) !important; }
   .pos-tr:hover, .pos-tr.active { transform: scale(1.04) !important; }
@@ -1778,45 +1744,45 @@
   .ag-wf-name    { font-size: 11px; }
   
   .q-hub-visual-container {
-    width: 290px !important;
-    height: 290px !important;
+    width: 295px !important;
+    height: 295px !important;
     margin: 20px auto !important;
     display: flex !important;
   }
   .q-floating-card {
-    width: 90px !important;
+    width: 100px !important;
     padding: 5px 6px !important;
   }
   .q-wide-card {
-    width: 90px !important;
+    width: 100px !important;
   }
   .q-fc-name {
-    font-size: 7.5px !important;
+    font-size: 9.5px !important;
   }
   .q-fc-domain {
-    font-size: 6px !important;
+    font-size: 7.5px !important;
   }
   .pos-tl {
     top: 8% !important;
-    left: -20px !important;
+    left: -2px !important;
   }
   .pos-tr {
     top: 8% !important;
-    right: -20px !important;
+    right: -2px !important;
   }
   .pos-ml {
-    left: -28px !important;
+    left: -8px !important;
   }
   .pos-mr {
-    right: -28px !important;
+    right: -8px !important;
   }
   .pos-bl {
     bottom: 8% !important;
-    left: -20px !important;
+    left: -2px !important;
   }
   .pos-br {
     bottom: 8% !important;
-    right: -20px !important;
+    right: -2px !important;
   }
 }
 
