@@ -106,53 +106,53 @@ const AGENTS = [
 
 const TICKERS = [
 
-  {code:'SD',bold:'Service Desk',rest:' reset VPN cert for 14 users — resolved in 38s'},
+  {code:'SD',bold:'Service Desk',rest:' reset VPN cert for 14 users'},
 
-  {code:'IA',bold:'Identity Agent',rest:' provisioned 3 new joiners — Day-1 ready'},
+  {code:'IA',bold:'Identity Agent',rest:' provisioned 3 new joiners'},
 
   {code:'SO',bold:'Security Ops',rest:' isolated endpoint WS-FIN-0042 after EDR alert'},
 
-  {code:'CO',bold:'Cloud Ops',rest:' stopped idle EC2 instance — saved $1,140/mo'},
+  {code:'CO',bold:'Cloud Ops',rest:' stopped idle EC2 instance'},
 
   {code:'IM',bold:'Incident Mgmt',rest:' correlated 6 tickets to one root cause'},
 
   {code:'KI',bold:'Knowledge Agent',rest:' auto-generated KB article from resolved incident'},
 
-  {code:'CG',bold:'Compliance',rest:' detected NESA control gap — remediation tasked'},
+  {code:'CG',bold:'Compliance',rest:' detected NESA control gap'},
 
-  {code:'EI',bold:'Exec Intelligence',rest:' generated Monday briefing — delivered in 8 sec'},
+  {code:'EI',bold:'Exec Intelligence',rest:' generated Monday briefing'},
 
-  {code:'TC',bold:'Tool Coverage',rest:' detected 3 unmonitored cloud workloads — gap report filed'},
+  {code:'TC',bold:'Tool Coverage',rest:' detected 3 unmonitored cloud workloads'},
 
-  {code:'SD',bold:'Service Desk',rest:' resolved printer offline for 8 users in Finance — 22s'},
+  {code:'SD',bold:'Service Desk',rest:' resolved printer offline for 8 users in Finance'},
 
-  {code:'IA',bold:'Identity Agent',rest:' revoked 34 entitlements for offboarded employee — 9 min'},
+  {code:'IA',bold:'Identity Agent',rest:' revoked 34 entitlements for offboarded employee'},
 
   {code:'RC',bold:'Root Cause',rest:' traced repeated CRM timeouts to misconfigured load balancer'},
 
-  {code:'CM',bold:'Change Mgmt',rest:' auto-approved 12 low-risk patches — deploy window locked in'},
+  {code:'CM',bold:'Change Mgmt',rest:' auto-approved 12 low-risk patches'},
 
-  {code:'SO',bold:'Security Ops',rest:' blocked phishing campaign — 47 malicious emails retracted'},
+  {code:'SO',bold:'Security Ops',rest:' blocked phishing campaign'},
 
-  {code:'CO',bold:'Cloud Ops',rest:' rightsized 6 oversized RDS instances — saving $3,200/mo'},
+  {code:'CO',bold:'Cloud Ops',rest:' rightsized 6 oversized RDS instances'},
 
-  {code:'AD',bold:'Asset Discovery',rest:' found 3 unregistered servers — CMDB reconciled automatically'},
+  {code:'AD',bold:'Asset Discovery',rest:' found 3 unregistered servers'},
 
   {code:'EI',bold:'Exec Intelligence',rest:' answered "Why did ticket volume spike Tuesday" in 4 sec'},
 
-  {code:'CG',bold:'Compliance',rest:' collected SOC 2 evidence package — audit-ready in 4 hours'},
+  {code:'CG',bold:'Compliance',rest:' collected SOC 2 evidence package'},
 
-  {code:'TC',bold:'Tool Coverage',rest:' flagged 5 endpoints missing EDR — gap report sent to CISO'},
+  {code:'TC',bold:'Tool Coverage',rest:' flagged 5 endpoints missing EDR'},
 
-  {code:'IM',bold:'Incident Mgmt',rest:' paged on-call and triaged alert in 90s — zero human touch'},
+  {code:'IM',bold:'Incident Mgmt',rest:' paged on-call and triaged alert in 90s'},
 
-  {code:'KI',bold:'Knowledge Agent',rest:' detected stale KB article — updated from 3 recent incidents'},
+  {code:'KI',bold:'Knowledge Agent',rest:' detected stale KB article'},
 
-  {code:'IA',bold:'Identity Agent',rest:' flagged SoD conflict on finance role — access request blocked'},
+  {code:'IA',bold:'Identity Agent',rest:' flagged SoD conflict on finance role'},
 
-  {code:'SD',bold:'Service Desk',rest:' provisioned Adobe CC licence from pool — ticket closed in 41s'},
+  {code:'SD',bold:'Service Desk',rest:' provisioned Adobe CC licence from pool'},
 
-  {code:'CO',bold:'Cloud Ops',rest:' detected public S3 bucket — permissions reverted in 4 min'},
+  {code:'CO',bold:'Cloud Ops',rest:' detected public S3 bucket'},
 
 ];
 
