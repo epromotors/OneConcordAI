@@ -638,8 +638,12 @@ function buildNav() {
       socialNav.appendChild(a);
     });
 
-    ctaBlock.appendChild(demoBtn);
-    ctaBlock.appendChild(contactBtn);
+    var btnRow = document.createElement('div');
+    btnRow.className = 'cta-buttons-row';
+    btnRow.appendChild(demoBtn);
+    btnRow.appendChild(contactBtn);
+
+    ctaBlock.appendChild(btnRow);
     ctaBlock.appendChild(socialNav);
 
     mobLinks.appendChild(ctaBlock);
