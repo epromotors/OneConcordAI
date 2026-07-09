@@ -220,7 +220,7 @@
           <span class="section-label" style="justify-content:center; margin-bottom: 20px !important;">Agents</span>\
           <h1 class="ag-hero-heading" id="ag-hero-h1">\
             <span class="word"><span style="--wi:0">Enterprise</span></span> \
-            <span class="word"><span style="--wi:1">operations,</span></span> \
+            <span class="word"><span style="--wi:1">operations,</span></span><br> \
             <span class="word"><span style="--wi:2">powered</span></span> \
             <span class="word"><span style="--wi:3">by</span></span> \
             <span class="word"><span style="--wi:4">autonomous</span></span> \
