@@ -290,6 +290,11 @@ function isStaticPageMode() {
 
 function go(id) {
 
+  // Temporarily disable smooth scroll to avoid layout jumping/scrolling conflicts
+  var htmlEl = document.documentElement;
+  var prevScrollBehavior = htmlEl.style.scrollBehavior;
+  htmlEl.style.scrollBehavior = 'auto';
+
   // Scroll to top FIRST — before page switch, prevents layout flash
   window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
@@ -430,6 +435,13 @@ function go(id) {
     }
 
   }, 200);
+
+  // Restore original scroll behavior
+  if (prevScrollBehavior) {
+    htmlEl.style.scrollBehavior = prevScrollBehavior;
+  } else {
+    htmlEl.style.scrollBehavior = '';
+  }
 
 }
 
