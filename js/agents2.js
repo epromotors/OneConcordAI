@@ -557,7 +557,7 @@
       card.className = 'ag-workflow-card';
       card.style.setProperty('--wf-color', wf.color);
       var stepsHtml = wf.steps.map(function(s, i) {
-        var arrow = i < wf.steps.length - 1 ? '<span class="ag-wf-arrow">?</span>' : '';
+        var arrow = i < wf.steps.length - 1 ? '<span class="ag-wf-arrow">&rarr;</span>' : '';
         return '\
           <div class="ag-wf-step">\
             <span class="ag-wf-step-badge ' + s.badge + '">' + s.label + '</span>\
