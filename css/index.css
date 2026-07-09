@@ -5357,3 +5357,104 @@ body {
     margin-right: auto !important;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════
+   UNIFIED HERO CENTERING & LAYOUT FOR INNER/SUB-PAGES
+   Forces all inner page hero sections to have centered layouts
+   and typography, matching the Pricing page hero design.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Page Hero (.page-hero) Centering ── */
+.page-hero .container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.page-hero h1 {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.page-hero p.lead {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.page-hero .section-label {
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 20px !important;
+}
+
+/* ── 2. About Page Hero Grid Layout Override ── */
+.about-hero-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  max-width: 100% !important;
+}
+
+.about-hero-left {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  max-width: 100% !important;
+}
+
+.about-hero-left h1 {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.about-hero-left p.lead {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.about-hero-badges {
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+}
+
+.about-hero-right {
+  display: none !important;
+}
+
+/* ── 3. Agents Page Hero (#ag-hero) Centering ── */
+#ag-hero .ag-hero-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  max-width: 100% !important;
+}
+
+#ag-hero .ag-hero-left {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+#ag-hero .ag-hero-heading {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#ag-hero .ag-hero-sub {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}

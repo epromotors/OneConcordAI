@@ -4105,6 +4105,23 @@ function initSubpageStars() {
     hero.prepend(starsMd);
     hero.prepend(starsSm);
   });
+
+  // Inject section labels if they are missing in the HTML markup
+  const solutionsLabel = document.querySelector('#pg-solutions .page-hero .container');
+  if (solutionsLabel && !solutionsLabel.querySelector('.section-label')) {
+    const span = document.createElement('span');
+    span.className = 'section-label';
+    span.textContent = 'Solutions';
+    solutionsLabel.prepend(span);
+  }
+
+  const aboutLabel = document.querySelector('#pg-about .page-hero .container');
+  if (aboutLabel && !aboutLabel.querySelector('.section-label')) {
+    const span = document.createElement('span');
+    span.className = 'section-label';
+    span.textContent = 'About Us';
+    aboutLabel.prepend(span);
+  }
 }
 
 
