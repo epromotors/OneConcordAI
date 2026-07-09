@@ -493,7 +493,7 @@
 /* Domain color themes */
 .ag-domain-it   { --ag-card-accent: linear-gradient(90deg, #B5F2DB, transparent); --ag-domain-color: #B5F2DB; --ag-domain-bg: rgba(181, 242, 219, 0.06); }
 .ag-domain-sec  { --ag-card-accent: linear-gradient(90deg, #E4EEF0, transparent); --ag-domain-color: #E4EEF0; --ag-domain-bg: rgba(228, 238, 240, 0.06); }
-.ag-domain-comp { --ag-card-accent: linear-gradient(90deg, #FFC933, transparent); --ag-domain-color: #FFC933; --ag-domain-bg: rgba(255, 201, 51, 0.06); }
+.ag-domain-comp { --ag-card-accent: linear-gradient(90deg, #FFC933, transparent); --ag-domain-color: #ffffff; --ag-domain-bg: rgba(255, 201, 51, 0.06); }
 
 .ag-card-top {
   display: flex;

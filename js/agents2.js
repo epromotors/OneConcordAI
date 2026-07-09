@@ -124,7 +124,7 @@
   var DOMAIN_MAP = {
     it:   { cls: 'ag-domain-it',   label: 'IT & Ops',          color: '#B5F2DB' },
     sec:  { cls: 'ag-domain-sec',  label: 'Security & Cloud',  color: '#E4EEF0' },
-    comp: { cls: 'ag-domain-comp', label: 'Reporting & Compliance', color: '#FFC933' },
+    comp: { cls: 'ag-domain-comp', label: 'Reporting & Compliance', color: '#ffffff' },
   };
 
   var STATS_DATA = [
