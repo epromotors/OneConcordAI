@@ -435,10 +435,24 @@ function toggleMob() {
   var menu = document.getElementById('mobMenu');
   if (menu) {
     var isOpen = menu.classList.toggle('open');
+    
+    var backdrop = document.getElementById('menuBackdrop');
+    if (!backdrop) {
+      backdrop = document.createElement('div');
+      backdrop.id = 'menuBackdrop';
+      backdrop.className = 'menu-backdrop';
+      backdrop.onclick = function() {
+        toggleMob();
+      };
+      document.body.appendChild(backdrop);
+    }
+
     if (isOpen) {
+      backdrop.classList.add('open');
       document.body.classList.add('menu-open');
       document.body.style.overflow = 'hidden';
     } else {
+      backdrop.classList.remove('open');
       document.body.classList.remove('menu-open');
       document.body.style.overflow = '';
     }
