@@ -347,7 +347,7 @@
       const matchesAction = clickAttr.includes("go('contact')") || 
                             hrefAttr.includes("contact.html");
 
-      if (matchesText || (matchesAction && (txt.includes('demo') || txt.includes('get started')))) {
+      if (matchesText || (matchesAction && txt.includes('demo'))) {
         // Remove or override standard clicks/hrefs
         if (hrefAttr && hrefAttr.includes("contact.html")) {
           el.setAttribute('href', '#');
