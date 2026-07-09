@@ -4013,9 +4013,9 @@ footer { background: rgba(22, 35, 43, 0.96); border-top: 1px solid var(--border)
   .bento-card > div[style*="flex"] {
     flex-direction: column !important;
   }
-  /* Hide large SVG pipeline visualizer on mobile */
-  .platform-pipeline-svg {
-    display: none;
+  /* Hide large SVG pipeline visualizer and its wrapper container on mobile */
+  .platform-pipeline-visual-wrapper {
+    display: none !important;
   }
 }
 
