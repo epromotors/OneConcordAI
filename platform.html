@@ -7,7 +7,12 @@
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
+    window.scrollTo(0, 0);
+    window.addEventListener('pageshow', function(e) {
+      window.scrollTo(0, 0);
+    });
   </script>
+  
 
   <!-- ═══════════════════ FAVICONS ═══════════════════ -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -764,7 +769,7 @@
 
     <!-- ════════════════════════════════════════ PAGE: PLATFORM -->
 
-    <div id="pg-platform" class="page">
+    <div id="pg-platform" class="page active">
       <div id="platform"></div>
 
       <div class="pricing-stars-wrap">

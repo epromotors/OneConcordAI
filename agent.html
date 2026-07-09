@@ -7,7 +7,12 @@
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
+    window.scrollTo(0, 0);
+    window.addEventListener('pageshow', function(e) {
+      window.scrollTo(0, 0);
+    });
   </script>
+  
 
   <!-- ═══════════════════ FAVICONS ═══════════════════ -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -1182,7 +1187,7 @@
 
     <!-- ════════════════════════════════════════ PAGE: AGENTS -->
 
-    <div id="pg-agents" class="page">
+    <div id="pg-agents" class="page active">
       <div id="agents"></div>
 
 

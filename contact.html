@@ -7,7 +7,12 @@
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
+    window.scrollTo(0, 0);
+    window.addEventListener('pageshow', function(e) {
+      window.scrollTo(0, 0);
+    });
   </script>
+  
 
   <!-- ═══════════════════ FAVICONS ═══════════════════ -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -1718,7 +1723,7 @@
 
     <!-- ════════════════════════════════════════ PAGE: CONTACT -->
 
-    <div id="pg-contact" class="page">
+    <div id="pg-contact" class="page active">
       <div id="contact"></div>
       <div class="pricing-stars-wrap" style="padding-top: 140px; padding-bottom: 100px; min-height: 80vh; display: flex; align-items: center;">
         <div class="price-stars price-stars-sm"></div>
