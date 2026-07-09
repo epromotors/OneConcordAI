@@ -134,7 +134,7 @@ const SOLUTIONS = {
 
     title:'IT Operations',
 
-    tagline:'6 agents. Zero tickets. Every issue resolved before it becomes one.',
+    tagline:'6 agents. Every issue resolved before it becomes one.',
 
     body:'OneConcord AI removes the IT service desk bottleneck. Six agents across Service Desk, Incident Management, Root Cause Analysis, Change Management, Knowledge Intelligence, and Asset Discovery work together to resolve issues before tickets are raised.',
 
