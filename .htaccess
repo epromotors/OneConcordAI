@@ -1,0 +1,32 @@
+DirectoryIndex index.html
+Options -MultiViews
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteRule ^platform/?$ /platform.html [R=301,L]
+  RewriteRule ^agents/?$ /agent.html [R=301,L]
+  RewriteRule ^agent/?$ /agent.html [R=301,L]
+  RewriteRule ^solutions/?$ /solutions.html [R=301,L]
+  RewriteRule ^pricing/?$ /pricing.html [R=301,L]
+  RewriteRule ^about/?$ /about.html [R=301,L]
+  RewriteRule ^contact/?$ /contact.html [R=301,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  <FilesMatch "\.(css|js|svg|png|jpg|jpeg|webp|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(html|xml|txt)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>
+
+AddType application/xml .xml
+AddType image/svg+xml .svg
+AddType text/plain .txt

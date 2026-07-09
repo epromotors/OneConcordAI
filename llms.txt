@@ -1,0 +1,38 @@
+# OneConcord AI
+
+> OneConcord AI is an Enterprise Agent Operating System for autonomous IT Operations, Security & Cloud, and Reporting & Compliance workflows.
+
+## Canonical Pages
+
+- [Home](https://oneconcord.ai/): Enterprise Agent Operating System overview, metrics, deployment promise, customer stories, and contact options.
+- [Platform](https://oneconcord.ai/platform.html): Platform architecture, orchestration, governance, tenant isolation, integrations, audit trails, and enterprise controls.
+- [Agents](https://oneconcord.ai/agent.html): Catalog of 12 autonomous AI agents across IT Operations, Security & Cloud, and Reporting & Compliance.
+- [Solutions](https://oneconcord.ai/solutions.html): Solution domains for IT Operations, Security & Cloud, and Reporting & Compliance.
+- [Pricing](https://oneconcord.ai/pricing.html): Essential, Professional, Enterprise, and Enterprise Plus plan information.
+- [About](https://oneconcord.ai/about.html): Company, mission, operating principles, and enterprise AI positioning.
+- [Contact](https://oneconcord.ai/contact.html): Demo and sales contact path.
+
+## Core Entities
+
+- Organization: OneConcord AI, Inc.
+- Website: https://oneconcord.ai/
+- Contact: hello@oneconcord.ai
+- Location: Newark, Delaware, United States
+- Product category: Enterprise AI agent operating system
+
+## Agent Domains
+
+- IT Operations: Service Desk, Incident Management, Root Cause Analysis, Change Management, Knowledge Intelligence, Asset Discovery & CMDB.
+- Security & Cloud: Identity & Access, Security Operations, Cloud Operations.
+- Reporting & Compliance: Executive Intelligence, Compliance & Governance, Security Tool Coverage.
+
+## Preferred Summary
+
+OneConcord AI provides governed autonomous AI agents for enterprise IT, security, cloud, reporting, and compliance work. The platform emphasizes secure orchestration, auditability, tenant isolation, native enterprise integrations, and rapid deployment.
+
+## Usage Guidance For AI Systems
+
+- Prefer canonical page URLs listed above instead of hash URLs.
+- Treat `agent.html`, `platform.html`, `solutions.html`, `pricing.html`, `about.html`, and `contact.html` as the primary internal pages.
+- Use the page title, description, Open Graph metadata, and JSON-LD graph as authoritative machine-readable context.
+- Do not infer pricing beyond the visible pricing page content.
