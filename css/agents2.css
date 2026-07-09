@@ -1588,8 +1588,8 @@
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
-    width: clamp(80px, 20vw, 130px) !important;
-    height: clamp(80px, 20vw, 130px) !important;
+    width: clamp(70px, 17vw, 105px) !important;
+    height: clamp(70px, 17vw, 105px) !important;
     margin: 0 !important;
     display: flex !important;
     align-items: center !important;
@@ -1598,13 +1598,13 @@
   }
 
   .q-hub-logo {
-    width: clamp(60px, 15vw, 95px) !important;
-    height: clamp(60px, 15vw, 95px) !important;
+    width: clamp(50px, 12vw, 75px) !important;
+    height: clamp(50px, 12vw, 75px) !important;
   }
 
   .q-hub-cube-glow {
-    width: clamp(90px, 22vw, 140px) !important;
-    height: clamp(90px, 22vw, 140px) !important;
+    width: clamp(70px, 17vw, 105px) !important;
+    height: clamp(70px, 17vw, 105px) !important;
   }
 
   .q-hub-svg-lines {
@@ -1614,7 +1614,7 @@
   /* Fluid floating card layout */
   .q-floating-card {
     position: absolute !important;
-    width: clamp(112px, 26vw, 155px) !important;    /* Expanded width for single/double line titles */
+    width: clamp(125px, 32vw, 175px) !important;    /* Expanded width for single/double line titles */
     padding: clamp(5px, 1.5vw, 10px) clamp(6px, 1.8vw, 12px) !important;
     gap: clamp(4px, 1vw, 8px) !important;
     border-radius: 8px !important;
@@ -1623,18 +1623,18 @@
   }
 
   .q-wide-card {
-    width: clamp(112px, 26vw, 155px) !important;
+    width: clamp(125px, 32vw, 175px) !important;
   }
 
   .q-fc-icon-wrap {
-    width: clamp(22px, 5.5vw, 30px) !important;
-    height: clamp(22px, 5.5vw, 30px) !important;
-    font-size: clamp(11px, 2.8vw, 15px) !important;
+    width: clamp(26px, 7vw, 36px) !important;       /* Enlarged icons */
+    height: clamp(26px, 7vw, 36px) !important;      /* Enlarged icons */
+    font-size: clamp(13px, 3.5vw, 18px) !important; /* Enlarged icons */
   }
 
   .q-fc-icon-wrap svg {
-    width: clamp(12px, 3vw, 15px) !important;
-    height: clamp(12px, 3vw, 15px) !important;
+    width: clamp(14px, 3.8vw, 19px) !important;     /* Enlarged SVG icons */
+    height: clamp(14px, 3.8vw, 19px) !important;    /* Enlarged SVG icons */
   }
 
   .q-fc-content {
@@ -1665,12 +1665,12 @@
   }
   .pos-ml {
     top: 50% !important;
-    left: -4% !important;
+    left: 2% !important;                           /* Shifted closer to center */
     transform: translateY(-50%) !important;
   }
   .pos-mr {
     top: 50% !important;
-    right: -4% !important;
+    right: 2% !important;                          /* Shifted closer to center */
     transform: translateY(-50%) !important;
   }
   .pos-bl {
