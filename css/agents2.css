@@ -1182,9 +1182,9 @@
 }
 
 .q-hub-wrapper {
-  max-width: 100%;
+  max-width: var(--max, 1200px);
   margin: 0 auto;
-  padding: 0 clamp(40px, 8vw, 120px);
+  padding: 0 clamp(20px, 5vw, 80px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1193,7 +1193,7 @@
 
 /* Left Column Styling */
 .q-hub-left {
-  flex: 0 0 40%;
+  flex: 0 0 35%;
   max-width: 500px;
 }
 
