@@ -1572,6 +1572,122 @@
     flex: 1 1 100%;
     width: 100%;
   }
+
+  /* Fluid, dynamically-scaled radial visual container */
+  .q-hub-visual-container {
+    display: flex !important;
+    position: relative !important;
+    width: clamp(285px, 76vw, 480px) !important;
+    height: clamp(285px, 76vw, 480px) !important;
+    margin: 30px auto !important;
+    padding: 0 !important;
+  }
+
+  .q-hub-cube-scene {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: clamp(80px, 20vw, 130px) !important;
+    height: clamp(80px, 20vw, 130px) !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10 !important;
+  }
+
+  .q-hub-logo {
+    width: clamp(60px, 15vw, 95px) !important;
+    height: clamp(60px, 15vw, 95px) !important;
+  }
+
+  .q-hub-cube-glow {
+    width: clamp(90px, 22vw, 140px) !important;
+    height: clamp(90px, 22vw, 140px) !important;
+  }
+
+  .q-hub-svg-lines {
+    display: block !important;
+  }
+
+  /* Fluid floating card layout */
+  .q-floating-card {
+    position: absolute !important;
+    width: clamp(112px, 26vw, 155px) !important;    /* Expanded width for single/double line titles */
+    padding: clamp(5px, 1.5vw, 10px) clamp(6px, 1.8vw, 12px) !important;
+    gap: clamp(4px, 1vw, 8px) !important;
+    border-radius: 8px !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+  }
+
+  .q-wide-card {
+    width: clamp(112px, 26vw, 155px) !important;
+  }
+
+  .q-fc-icon-wrap {
+    width: clamp(22px, 5.5vw, 30px) !important;
+    height: clamp(22px, 5.5vw, 30px) !important;
+    font-size: clamp(11px, 2.8vw, 15px) !important;
+  }
+
+  .q-fc-icon-wrap svg {
+    width: clamp(12px, 3vw, 15px) !important;
+    height: clamp(12px, 3vw, 15px) !important;
+  }
+
+  .q-fc-content {
+    min-width: 0;
+  }
+
+  .q-fc-name {
+    font-size: clamp(10px, 2.5vw, 13.5px) !important;   /* Larger, readable titles */
+    line-height: 1.25 !important;
+    white-space: normal !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+  }
+
+  .q-fc-domain {
+    font-size: clamp(7.5px, 2vw, 10px) !important;
+    margin-top: 2px !important;
+  }
+
+  /* Percentage-based coordinates to scale proportionally with visual container */
+  .pos-tl {
+    top: 10% !important;
+    left: 2% !important;
+  }
+  .pos-tr {
+    top: 10% !important;
+    right: 2% !important;
+  }
+  .pos-ml {
+    top: 50% !important;
+    left: -4% !important;
+    transform: translateY(-50%) !important;
+  }
+  .pos-mr {
+    top: 50% !important;
+    right: -4% !important;
+    transform: translateY(-50%) !important;
+  }
+  .pos-bl {
+    bottom: 10% !important;
+    left: 2% !important;
+  }
+  .pos-br {
+    bottom: 10% !important;
+    right: 2% !important;
+  }
+
+  .pos-tl:hover, .pos-tl.active { transform: scale(1.04) !important; }
+  .pos-tr:hover, .pos-tr.active { transform: scale(1.04) !important; }
+  .pos-ml:hover, .pos-ml.active { transform: translateY(-50%) scale(1.04) !important; }
+  .pos-mr:hover, .pos-mr.active { transform: translateY(-50%) scale(1.04) !important; }
+  .pos-bl:hover, .pos-bl.active { transform: scale(1.04) !important; }
+  .pos-br:hover, .pos-br.active { transform: scale(1.04) !important; }
 }
 
 
@@ -1635,155 +1751,12 @@
     padding: 0 5px;
     font-size: 10px;
   }
-  
-  /* Qount-style interactive hub section mobile radial design */
-  .q-hub-visual-container {
-    display: flex !important;
-    position: relative !important;
-    width: 320px !important;
-    height: 320px !important;
-    margin: 30px auto !important;
-    padding: 0 !important;
-  }
-  .q-hub-cube-scene {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 90px !important;
-    height: 90px !important;
-    margin: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    z-index: 10 !important;
-  }
-  .q-hub-logo {
-    width: 70px !important;
-    height: 70px !important;
-  }
-  .q-hub-cube-glow {
-    width: 100px !important;
-    height: 100px !important;
-  }
-  .q-hub-svg-lines {
-    display: block !important;
-  }
-  .q-floating-card {
-    position: absolute !important;
-    width: 110px !important;
-    padding: 6px 8px !important;
-    gap: 4px !important;
-    border-radius: 8px !important;
-    transform: none !important;
-    box-sizing: border-box !important;
-  }
-  .q-wide-card {
-    width: 110px !important;
-  }
-  .q-fc-icon-wrap {
-    width: 22px !important;
-    height: 22px !important;
-    font-size: 11px !important;
-  }
-  .q-fc-icon-wrap svg {
-    width: 12px !important;
-    height: 12px !important;
-  }
-  .q-fc-content {
-    min-width: 0;
-  }
-  .q-fc-name {
-    font-size: 10.5px !important;
-    line-height: 1.25 !important;
-    white-space: normal !important;
-    font-weight: 700 !important;
-    color: #fff !important;
-  }
-  .q-fc-domain {
-    font-size: 8px !important;
-    margin-top: 2px !important;
-  }
-  .pos-tl {
-    top: 10% !important;
-    left: 2px !important;
-  }
-  .pos-tr {
-    top: 10% !important;
-    right: 2px !important;
-  }
-  .pos-ml {
-    top: 50% !important;
-    left: -8px !important;
-    transform: translateY(-50%) !important;
-  }
-  .pos-mr {
-    top: 50% !important;
-    right: -8px !important;
-    transform: translateY(-50%) !important;
-  }
-  .pos-bl {
-    bottom: 10% !important;
-    left: 2px !important;
-  }
-  .pos-br {
-    bottom: 10% !important;
-    right: 2px !important;
-  }
-  .pos-tl:hover, .pos-tl.active { transform: scale(1.04) !important; }
-  .pos-tr:hover, .pos-tr.active { transform: scale(1.04) !important; }
-  .pos-ml:hover, .pos-ml.active { transform: translateY(-50%) scale(1.04) !important; }
-  .pos-mr:hover, .pos-mr.active { transform: translateY(-50%) scale(1.04) !important; }
-  .pos-bl:hover, .pos-bl.active { transform: scale(1.04) !important; }
-  .pos-br:hover, .pos-br.active { transform: scale(1.04) !important; }
 }
 
 @media (max-width: 480px) {
   .ag-stats-grid { grid-template-columns: 1fr; }
   .ag-int-grid   { grid-template-columns: repeat(2, 1fr); }
   .ag-wf-name    { font-size: 11px; }
-  
-  .q-hub-visual-container {
-    width: 295px !important;
-    height: 295px !important;
-    margin: 20px auto !important;
-    display: flex !important;
-  }
-  .q-floating-card {
-    width: 100px !important;
-    padding: 5px 6px !important;
-  }
-  .q-wide-card {
-    width: 100px !important;
-  }
-  .q-fc-name {
-    font-size: 9.5px !important;
-  }
-  .q-fc-domain {
-    font-size: 7.5px !important;
-  }
-  .pos-tl {
-    top: 8% !important;
-    left: -2px !important;
-  }
-  .pos-tr {
-    top: 8% !important;
-    right: -2px !important;
-  }
-  .pos-ml {
-    left: -8px !important;
-  }
-  .pos-mr {
-    right: -8px !important;
-  }
-  .pos-bl {
-    bottom: 8% !important;
-    left: -2px !important;
-  }
-  .pos-br {
-    bottom: 8% !important;
-    right: -2px !important;
-  }
 }
 
 
