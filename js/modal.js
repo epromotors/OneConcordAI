@@ -221,17 +221,17 @@
           <div class="demo-modal-form-row">
             <div class="demo-modal-group">
               <label class="demo-modal-label">First name</label>
-              <input class="demo-modal-input" type="text" name="first_name" autocomplete="given-name" placeholder="e.g. Aisha" required />
+              <input class="demo-modal-input" type="text" name="first_name" autocomplete="given-name" placeholder="e.g. Sarah" required />
             </div>
             <div class="demo-modal-group">
               <label class="demo-modal-label">Last name</label>
-              <input class="demo-modal-input" type="text" name="last_name" autocomplete="family-name" placeholder="e.g. Verma" required />
+              <input class="demo-modal-input" type="text" name="last_name" autocomplete="family-name" placeholder="e.g. Miller" required />
             </div>
           </div>
           
           <div class="demo-modal-group">
             <label class="demo-modal-label">Work email</label>
-            <input class="demo-modal-input" type="email" name="email" autocomplete="email" placeholder="e.g. aisha.v@novabank.ae" required />
+            <input class="demo-modal-input" type="email" name="email" autocomplete="email" placeholder="e.g. sarah.m@novabank.com" required />
           </div>
           
           <div class="demo-modal-group">
