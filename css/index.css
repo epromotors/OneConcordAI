@@ -5423,8 +5423,8 @@ body {
 .ar2-card:hover .ar2-sec { background: rgba(228, 238, 240, 0.14); }
 
 /* Reporting & Compliance — gold */
-.ar2-comp { background: rgba(255, 201, 51, 0.08); color: #FFC933; border-color: rgba(255, 201, 51, 0.25); }
-.ar2-card:hover .ar2-comp { background: rgba(255, 201, 51, 0.13); }
+.ar2-comp { background: rgba(228, 238, 240, 0.08); color: #E4EEF0; border-color: rgba(228, 238, 240, 0.22); }
+.ar2-card:hover .ar2-comp { background: rgba(228, 238, 240, 0.14); }
 
 /* Agent name — brand yellow */
 .ar2-name {
@@ -5463,7 +5463,7 @@ body {
 
 .ar2-it-val   { color: #B5F2DB; }
 .ar2-sec-val  { color: #E4EEF0; }
-.ar2-comp-val { color: #FFC933; }
+.ar2-comp-val { color: #E4EEF0; }
 
 .ar2-lbl {
   font-size: 10.5px;
