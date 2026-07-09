@@ -112,7 +112,8 @@
 
 .ag-hero-heading .word {
   display: inline-block;
-  overflow: hidden;
+  overflow: visible;
+  padding-bottom: 0.15em;
 }
 
 .ag-hero-heading .word span {

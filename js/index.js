@@ -371,6 +371,9 @@ function go(id) {
 
     }
 
+    // Inject stars bg into #ag-hero AFTER it has been built by buildAgentGrid
+    initSubpageStars();
+
   }
 
   if (id === 'solutions') {
@@ -4165,6 +4168,12 @@ function initDrift() {
 function initHeroTitleSlider() {
   const wrapper = document.getElementById("hero-title-slider");
   if (!wrapper) return;
+  
+  // .ag-hero-heading .word {
+  //   display: inline-block;
+  //   overflow: visible;
+  //   padding-bottom: 0.15em;
+  // }
 
   // Clean any clone nodes if present
   const clones = wrapper.querySelectorAll(".slide-clone");
