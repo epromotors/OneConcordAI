@@ -5722,3 +5722,122 @@ body {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+/* ═══════════════════════════════════════════════════
+   POLICY AUDIT TERMINAL GRAPHIC (DESKTOP ONLY)
+   ═══════════════════════════════════════════════════ */
+.policy-audit-terminal.bento-visual {
+  margin-top: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 170px;
+  min-height: 170px;
+}
+
+.policy-audit-terminal .terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.policy-audit-terminal .terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.policy-audit-terminal .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.policy-audit-terminal .dot-r { background: #ff5f56; }
+.policy-audit-terminal .dot-y { background: #ffbd2e; }
+.policy-audit-terminal .dot-g { background: #27c93f; }
+
+.policy-audit-terminal .terminal-title {
+  font-size: 10px;
+  color: var(--text-3);
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.policy-audit-terminal .terminal-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--text-2);
+}
+
+.policy-audit-terminal .log-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--mono);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.policy-audit-terminal .log-time {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 10px;
+  min-width: 65px;
+}
+
+.policy-audit-terminal .log-tag {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  min-width: 52px;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+.policy-audit-terminal .log-tag.tag-ok {
+  background: rgba(181, 242, 219, 0.1);
+  color: #B5F2DB;
+  border: 1px solid rgba(181, 242, 219, 0.2);
+}
+
+.policy-audit-terminal .log-tag.tag-info {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.policy-audit-terminal .log-tag.tag-warn {
+  background: rgba(255, 201, 51, 0.1);
+  color: var(--gold);
+  border: 1px solid rgba(255, 201, 51, 0.2);
+}
+
+.policy-audit-terminal code {
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-family: inherit;
+}
+
+.policy-audit-terminal .txt-ok {
+  color: #B5F2DB;
+  font-weight: bold;
+}
+
+/* Hide on non-desktop screens */
+@media (max-width: 991px) {
+  .desktop-only-graphic {
+    display: none !important;
+  }
+}
+
