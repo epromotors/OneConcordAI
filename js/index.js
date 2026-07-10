@@ -694,10 +694,13 @@ function buildNav() {
 /* ── BUILD: TICKER ────────────────────────────────────── */
 
 function buildTicker() {
-
+  console.log('buildTicker running');
   var track = document.getElementById('tickerTrack');
-
-  if (!track) return;
+  if (!track) {
+    console.log('tickerTrack not found');
+    return;
+  }
+  console.log('tickerTrack found, items:', TICKERS.length);
 
   track.innerHTML = '';
 
