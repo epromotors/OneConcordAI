@@ -49,6 +49,18 @@ function client_ip(): string {
     return '0.0.0.0';
 }
 
+function log_denied(string $reason): void {
+    $dir = __DIR__ . '/private/logs';
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0700, true);
+    }
+    $file = $dir . '/denied.log';
+    $ipHash = hash('sha256', client_ip());
+    $time = gmdate('Y-m-d H:i:s') . ' UTC';
+    $logMsg = "[{$time}] IP: {$ipHash} | Reason: {$reason}\n";
+    @file_put_contents($file, $logMsg, FILE_APPEND | LOCK_EX);
+}
+
 function check_rate_limit(array $config): void {
     $dir = __DIR__ . '/private/rate-limits';
     if (!is_dir($dir)) {
@@ -66,6 +78,7 @@ function check_rate_limit(array $config): void {
     }
     $events = array_values(array_filter($events, fn($ts) => is_int($ts) && ($now - $ts) < $window));
     if (count($events) >= $max) {
+        log_denied('RATE_LIMIT_EXCEEDED');
         respond(429, ['ok' => false, 'message' => 'Too many requests. Please try again later.']);
     }
     $events[] = $now;
@@ -408,12 +421,14 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 $payload = read_payload();
 $token   = is_string($payload['csrf_token'] ?? null) ? substr((string) $payload['csrf_token'], 0, 128) : '';
 if (empty($_SESSION['form_token']) || !hash_equals((string) $_SESSION['form_token'], $token)) {
+    log_denied('CSRF_INVALID');
     respond(403, ['ok' => false, 'message' => 'Invalid form token. Please refresh the page and try again.']);
 }
 unset($_SESSION['form_token']);
 
 // Honeypot (website field must be blank)
 if (clean_string($payload['website'] ?? '', 200) !== '') {
+    log_denied('HONEYPOT_TRIGGERED');
     respond(200, ['ok' => true, 'message' => 'Thanks.']); // silent accept for bots
 }
 
@@ -435,6 +450,7 @@ $data = [
 ];
 
 if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+    log_denied('EMAIL_INVALID');
     respond(422, ['ok' => false, 'message' => 'Please enter a valid email address.']);
 }
 
