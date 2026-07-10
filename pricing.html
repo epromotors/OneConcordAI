@@ -208,12 +208,14 @@
   <!-- ═══════════════════ FONTS ═══════════════════ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Preload critical font to reduce CLS from font swap -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
 
   <!-- ═══════════════════ STYLES ═══════════════════ -->
-  <link rel="stylesheet" href="css/index.css?v=3.2" />
+  <link rel="stylesheet" href="css/index.css?v=3.3" />
   <link rel="stylesheet" href="css/agents2.css" />
 
 </head>
@@ -232,7 +234,7 @@
 
       <div class="logo" onclick="go('home')" style="cursor:pointer;">
 
-        <img src="OneConcord_Logo.png" alt="OneConcord AI" />
+        <img src="OneConcord_Logo.png" alt="OneConcord AI" width="148" height="64" fetchpriority="high" decoding="sync" />
 
       </div>
 
@@ -267,7 +269,7 @@
       <header class="topbar">
         <div class="brand">
           <a href="/" class="logo" data-pg="home" onclick="toggleMob();">
-            <img src="OneConcord_Logo.png" alt="OneConcord AI" style="height:34px; width:auto; display:block;" />
+            <img src="OneConcord_Logo.png" alt="OneConcord AI" width="79" height="34" style="height:34px; width:auto; display:block;" decoding="async" />
           </a>
         </div>
         <button class="close-btn" onclick="toggleMob()" aria-label="Close menu">

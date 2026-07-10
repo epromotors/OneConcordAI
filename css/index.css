@@ -5981,3 +5981,104 @@ body {
 }
 
 
+/* ══════════════════════════════════════════════
+   MOBILE PERFORMANCE OPTIMIZATIONS (v3.3)
+   Targets: LCP, CLS, TBT on mobile devices
+   ══════════════════════════════════════════════ */
+
+/* 1. Font Fallback Size-Adjust — reduces CLS from Manrope→system-ui swap.
+      The size-adjust nudges the system-ui fallback to match Manrope's metrics
+      so there is minimal text reflow when the web font loads. */
+@font-face {
+  font-family: "Manrope-fallback";
+  src: local("Arial"), local("system-ui");
+  size-adjust: 99%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+/* Apply the fallback stack so CLS is near-zero if Manrope is slow */
+body {
+  font-family: 'Manrope', 'Manrope-fallback', system-ui, sans-serif;
+}
+
+/* 2. Content Visibility — defer rendering of off-screen page sections.
+      Tells the browser to skip layout/paint until sections scroll near the viewport.
+      contain-intrinsic-size prevents layout collapse while section is skipped. */
+.section,
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
+}
+
+/* Override: hero must always render immediately (it IS the viewport) */
+.hero,
+#hero {
+  content-visibility: visible;
+  contain-intrinsic-size: none;
+}
+
+/* 3. Reduce heavy floating animations on mobile (saves GPU/battery) */
+@media (max-width: 768px) {
+  .float-card-1,
+  .float-card-2 {
+    animation: none;
+  }
+  .pulse-node {
+    animation-duration: 4s;
+  }
+  .pulse-node::before {
+    animation-duration: 4s;
+  }
+  /* Dashboard visual: smaller footprint on small phones */
+  .hero-visual {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hide decorative floating cards on very small screens — 
+     they clip outside viewport and waste layout/paint time */
+  .float-card {
+    display: none;
+  }
+  /* Reduce dashboard padding */
+  .dashboard-content {
+    padding: 0.8rem;
+  }
+  .db-metric {
+    padding: 0.5rem 0.6rem;
+  }
+  .db-metric-val {
+    font-size: 1rem;
+  }
+  .db-chart-row {
+    flex-direction: column;
+  }
+}
+
+/* 4. Respect prefers-reduced-motion — improves accessibility and
+      reduces TBT (Total Blocking Time) on low-end Android phones */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .pulse-node,
+  .pulse-node::before,
+  .float-card-1,
+  .float-card-2,
+  .db-status-dot,
+  .db-alert-dot,
+  .ticker-dot,
+  .hero-grid {
+    animation: none !important;
+  }
+}
+
