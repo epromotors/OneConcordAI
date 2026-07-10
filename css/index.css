@@ -5913,4 +5913,37 @@ body {
   }
 }
 
+/* DEBUG: force ticker text to be visible */
+.ticker-lbl,
+.ticker-lbl * {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.ticker,
+.ticker-track,
+.ticker-track * {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  mix-blend-mode: normal !important;
+}
+
+/* disable overlay mask while debugging */
+.ticker::after {
+  display: none !important;
+}
+
+.ticker-wrap {
+  position: relative;
+  isolation: isolate;
+}
+
+.ticker-lbl,
+.ticker {
+  mix-blend-mode: normal !important;
+  filter: none !important;
+}
+
 
