@@ -4,6 +4,10 @@ Options -MultiViews
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Redirect index.html to root / (prevents redirect loop)
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+  RewriteRule ^index\.html$ / [R=301,L]
+
   RewriteRule ^platform/?$ /platform.html [R=301,L]
   RewriteRule ^agents/?$ /agent.html [R=301,L]
   RewriteRule ^agent/?$ /agent.html [R=301,L]
