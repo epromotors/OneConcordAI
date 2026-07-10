@@ -5477,10 +5477,6 @@ function initMobileTestimonialsSlider() {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-  gsap.registerPlugin(ScrollTrigger);
-
-
-
   // 1. Ingest datasets and build HTML dynamically
 
   buildNav();
@@ -5575,41 +5571,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-  // 3. Initialize visual enhancements and triggers
+  // 3. Initialize visual enhancements and triggers safely
 
   lucide.createIcons();
 
-  initFades();
-
-  initCounters();
-
-  initLogos();
-
-  initCards();
-
-  initFloating();
-
-  initSubpageStars();
-
-  initHero();
-
-  initDrift();
-
-  initSvgLine();
-
-  initHeroTitleSlider();
-
-  initTimelineAnimation();
-
-  initGrcCoreSection();
-
-  initComplianceGrid();
+  if (window.gsap && window.ScrollTrigger) {
+    try {
+      gsap.registerPlugin(ScrollTrigger);
+      initFades();
+      initCounters();
+      initLogos();
+      initCards();
+      initFloating();
+      initSubpageStars();
+      initHero();
+      initDrift();
+      initSvgLine();
+      initHeroTitleSlider();
+      initTimelineAnimation();
+      initGrcCoreSection();
+      initComplianceGrid();
+    } catch (e) {
+      console.warn("GSAP / ScrollTrigger animations failed to initialize:", e);
+    }
+  } else {
+    console.warn("GSAP or ScrollTrigger not loaded. Skipping animations.");
+  }
 
   initAboutTelemetry();
 
 
-
-  // Re-run compliance grid on resize to keep it aligned with container dimensions
 
   window.addEventListener('resize', () => {
 
@@ -5621,7 +5612,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.complianceResizeTimeout = setTimeout(() => {
 
-      initComplianceGrid();
+      if (window.gsap && window.ScrollTrigger) {
+        initComplianceGrid();
+      }
 
     }, 150);
 
