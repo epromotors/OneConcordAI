@@ -4325,6 +4325,27 @@ footer { background: rgba(22, 35, 43, 0.96); border-top: 1px solid var(--border)
   .hero-title-container { align-items: center; }
   .hero-visual { display: flex; flex-direction: column; align-items: center; }
   .dashboard-wrap { max-width: 480px; width: 100%; }
+
+  .hero-visual .dashboard-wrap {
+    overflow: visible;
+  }
+
+  .hero-visual .ticker-wrap {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,.18);
+    width: 100%;
+  }
+
+  .ticker-lbl,
+  .ticker,
+  .ticker-track,
+  .ticker-track * {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    mix-blend-mode: normal !important;
+  }
 }
 
 @media (max-width: 600px) {
