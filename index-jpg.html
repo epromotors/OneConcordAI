@@ -173,12 +173,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
-
   <!-- ═══════════════════ STYLES ═══════════════════ -->
   <link rel="stylesheet" href="css/index.css?v=2.6" />
   <link rel="stylesheet" href="css/agents2.css" />
 
+  <style>
+    .site-logo {
+      display: block;
+      width: auto;
+    }
+
+    @media (min-width: 992px) {
+      .site-logo {
+        height: 64px;
+        max-width: none;
+      }
+    }
+  </style>
 </head>
 
 
@@ -195,7 +206,10 @@
 
       <div class="logo" onclick="go('home')" style="cursor:pointer;">
 
-        <img src="Logo.jpg" alt="OneConcord AI" />
+        <picture>
+          <source media="(min-width: 992px)" srcset="Logo.png">
+          <img src="Logo.jpg" alt="OneConcord AI" class="site-logo" />
+        </picture>
 
       </div>
 
