@@ -393,19 +393,19 @@ function send_html_message(array $config, array $to, string $subject, string $ht
         smtp_send_html($config, $to, $subject, $html, $plain, $replyTo);
         return;
     }
-    // Fallback: PHP mail() — plain text only (use SMTP for production!)
+    // Fallback: PHP mail() — sends HTML with branding
     $fromName = mb_encode_mimeheader((string) $config['from_name'], 'UTF-8', 'B', "\r\n");
     $from     = $fromName . ' <' . $config['from_email'] . '>';
     $headers  = implode("\r\n", array_filter([
         'From: ' . $from,
         'MIME-Version: 1.0',
-        'Content-Type: text/plain; charset=UTF-8',
+        'Content-Type: text/html; charset=UTF-8',
         'Content-Transfer-Encoding: 8bit',
         'X-Mailer: OneConcord AI Website',
         $replyTo !== '' ? 'Reply-To: ' . $replyTo : '',
     ]));
     foreach ($to as $recipient) {
-        if (!mail($recipient, encode_header($subject), $plain, $headers)) {
+        if (!mail($recipient, encode_header($subject), $html, $headers)) {
             throw new RuntimeException('mail() function failed.');
         }
     }
