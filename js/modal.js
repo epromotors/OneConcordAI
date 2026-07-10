@@ -341,8 +341,7 @@
 
       const matchesText = txt.includes('book a demo') || 
                           txt.includes('book demo') || 
-                          txt.includes('book a live demo') ||
-                          txt.includes('contact sales');
+                          txt.includes('book a live demo');
                           
       const matchesAction = clickAttr.includes("go('contact')") || 
                             hrefAttr.includes("contact.html");
@@ -359,6 +358,15 @@
 
         el.addEventListener('click', (e) => {
           e.preventDefault();
+          
+          // Close mobile menu if it is open
+          const mobMenu = document.getElementById('mobMenu');
+          if (mobMenu && mobMenu.classList.contains('open')) {
+            if (typeof toggleMob === 'function') {
+              toggleMob();
+            }
+          }
+          
           openModal();
         });
         el.setAttribute('data-demo-bound', 'true');
