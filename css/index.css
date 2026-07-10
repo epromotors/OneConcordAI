@@ -730,16 +730,16 @@ nav { display: flex; align-items: center; gap: 1.8rem; }
 @keyframes pring { 0%{transform:scale(.6);opacity:1} 100%{transform:scale(1.6);opacity:0} }
 
 /* ─── LIVE TICKER ─── */
-.ticker-wrap { border-top: 1px solid rgba(255,255,255,.08); padding-top: 22px; margin-top: 52px; width: 100%; flex-shrink: 0; }
+.ticker-wrap { border-top: 1px solid rgba(255,255,255,.08); padding-top: 22px; margin-top: 52px; width: 100%; flex-shrink: 0; display: block; }
 .ticker-lbl { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-1); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
 .ticker-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: blink 2s infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
-.ticker { overflow: hidden; white-space: nowrap; width: 100%; position: relative; }
+.ticker { overflow: hidden; white-space: nowrap; width: 100%; position: relative; min-height: 34px; display: block; }
 .ticker::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(90deg, var(--bg-0) 0%, transparent 8%, transparent 92%, var(--bg-0) 100%);
 }
-.ticker-track { display: inline-flex; animation: scroll 80s linear infinite; }
+.ticker-track { display: inline-flex; width: max-content; animation: scroll 80s linear infinite; }
 .ticker-track:hover { animation-play-state: paused; }
 .tick { display: inline-flex; align-items: center; gap: 9px; padding: 7px 18px; margin-right: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,.08); border-radius: 100px; font-size: 13px; color: var(--text-2); flex-shrink: 0; }
 .tick-ico { width: 18px; height: 18px; border-radius: 5px; background: rgba(181, 242, 219, 0.15); display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700; color: var(--accent); flex-shrink: 0; }
