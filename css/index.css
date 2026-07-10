@@ -648,6 +648,11 @@ nav { display: flex; align-items: center; gap: 1.8rem; }
   position: relative;
   width: 100%;
   height: clamp(3rem, 6vw, 5rem);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+.fonts-ready .slider-wrapper {
+  opacity: 1;
 }
 .slide-text {
   position: absolute;
@@ -663,6 +668,14 @@ nav { display: flex; align-items: center; gap: 1.8rem; }
   white-space: nowrap;
   text-shadow: 0 0 10px var(--bg-0), 0 0 20px var(--bg-0);
   will-change: transform, opacity;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+}
+.slide-text:first-child {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0%);
 }
 
 /* Dashboard */

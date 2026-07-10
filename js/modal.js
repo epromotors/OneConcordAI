@@ -344,11 +344,12 @@
                           txt.includes('book a live demo');
                           
       const matchesAction = clickAttr.includes("go('contact')") || 
-                            hrefAttr.includes("contact.html");
+                            hrefAttr.includes("contact.html") ||
+                            hrefAttr.includes("/contact");
 
       if (matchesText || (matchesAction && txt.includes('demo'))) {
         // Remove or override standard clicks/hrefs
-        if (hrefAttr && hrefAttr.includes("contact.html")) {
+        if (hrefAttr && (hrefAttr.includes("contact.html") || hrefAttr.includes("/contact"))) {
           el.setAttribute('href', '#');
         }
         

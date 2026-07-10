@@ -251,13 +251,13 @@ const SOLUTIONS = {
 /* ── SPA ROUTER ───────────────────────────────────────────── */
 
 var PAGE_URLS = {
-  home: 'index.html',
-  platform: 'platform.html',
-  agents: 'agent.html',
-  solutions: 'solutions.html',
-  pricing: 'pricing.html',
-  about: 'about.html',
-  contact: 'contact.html'
+  home: '/',
+  platform: '/platform',
+  agents: '/agent',
+  solutions: '/solutions',
+  pricing: '/pricing',
+  about: '/about',
+  contact: '/contact'
 };
 
 function getStaticPageId() {
@@ -267,21 +267,29 @@ function getStaticPageId() {
   var file = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
   var fileMap = {
     '': 'home',
+    '/': 'home',
     'index.html': 'home',
     'platform.html': 'platform',
+    'platform': 'platform',
     'agent.html': 'agents',
+    'agent': 'agents',
     'agents.html': 'agents',
+    'agents': 'agents',
     'solutions.html': 'solutions',
+    'solutions': 'solutions',
     'pricing.html': 'pricing',
+    'pricing': 'pricing',
     'about.html': 'about',
-    'contact.html': 'contact'
+    'about': 'about',
+    'contact.html': 'contact',
+    'contact': 'contact'
   };
 
   return fileMap[file] || '';
 }
 
 function pageUrl(id) {
-  return PAGE_URLS[id] || 'index.html';
+  return PAGE_URLS[id] || '/';
 }
 
 function isStaticPageMode() {
@@ -4341,17 +4349,13 @@ function initDrift() {
 
 }
 
-
-
 function initHeroTitleSlider() {
   const wrapper = document.getElementById("hero-title-slider");
   if (!wrapper) return;
-  
-  // .ag-hero-heading .word {
-  //   display: inline-block;
-  //   overflow: visible;
-  //   padding-bottom: 0.15em;
-  // }
+
+  // Prevent double initialization
+  if (wrapper.dataset.initialized) return;
+  wrapper.dataset.initialized = "true";
 
   // Clean any clone nodes if present
   const clones = wrapper.querySelectorAll(".slide-clone");
@@ -4360,9 +4364,6 @@ function initHeroTitleSlider() {
   const slides = wrapper.querySelectorAll(".slide-text");
   const totalSlides = slides.length;
   if (totalSlides === 0) return;
-
-  let currentIndex = 0;
-  let isAnimating = false;
 
   // Set initial states: first slide visible at y:0, others hidden at y:100%
   slides.forEach((slide, i) => {
@@ -4375,70 +4376,89 @@ function initHeroTitleSlider() {
     }
   });
 
-  function updateBrandingAccent(index) {
-    const badge = document.getElementById("hero-badge");
-    const ctaBtn = document.getElementById("hero-cta-btn");
-    if (!ctaBtn) return;
+  const startSlider = () => {
+    document.documentElement.classList.add('fonts-ready');
+    wrapper.style.opacity = "1";
 
-    if (badge) {
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    function updateBrandingAccent(index) {
+      const badge = document.getElementById("hero-badge");
+      const ctaBtn = document.getElementById("hero-cta-btn");
+      if (!ctaBtn) return;
+
+      if (badge) {
+        if (index === 3) {
+          badge.className = "badge badge-gold";
+          badge.innerHTML = "<span class='badge-dot' style='background:var(--gold-bright)'></span>GCC Cloud Compliant · Sovereign Cloud";
+        } else {
+          badge.className = "badge";
+          badge.innerHTML = "<span class='badge-dot'></span>Introducing OneConcord AI";
+        }
+      }
+
       if (index === 3) {
-        badge.className = "badge badge-gold";
-        badge.innerHTML = "<span class='badge-dot' style='background:var(--gold-bright)'></span>GCC Cloud Compliant · Sovereign Cloud";
+        ctaBtn.className = "btn btn-gold";
       } else {
-        badge.className = "badge";
-        badge.innerHTML = "<span class='badge-dot'></span>Introducing OneConcord AI";
+        ctaBtn.className = "btn btn-primary";
       }
     }
 
-    if (index === 3) {
-      ctaBtn.className = "btn btn-gold";
-    } else {
-      ctaBtn.className = "btn btn-primary";
+    function goToNextSlide() {
+      if (isAnimating) return;
+      isAnimating = true;
+
+      const prevIndex = currentIndex;
+      currentIndex = (currentIndex + 1) % totalSlides;
+
+      const currentSlide = slides[prevIndex];
+      const nextSlide = slides[currentIndex];
+
+      updateBrandingAccent(currentIndex);
+
+      // Prepare next slide at bottom position
+      gsap.set(nextSlide, { y: "100%", opacity: 0, autoAlpha: 1 });
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          gsap.set(currentSlide, { autoAlpha: 0 });
+          currentSlide.classList.remove("active");
+          nextSlide.classList.add("active");
+          isAnimating = false;
+        }
+      });
+
+      // Animate current out (upwards)
+      tl.to(currentSlide, {
+        y: "-100%",
+        opacity: 0,
+        duration: 0.6,
+        ease: "power3.inOut"
+      }, 0);
+
+      // Animate next in (from bottom to center)
+      tl.to(nextSlide, {
+        y: "0%",
+        opacity: 1,
+        duration: 0.6,
+        ease: "power3.inOut"
+      }, 0);
     }
+
+    if (window.heroTitleInterval) {
+      clearInterval(window.heroTitleInterval);
+    }
+    window.heroTitleInterval = setInterval(goToNextSlide, 3000);
+  };
+
+  if (document.fonts) {
+    document.fonts.ready.then(startSlider).catch(startSlider);
+    // Safety fallback
+    setTimeout(startSlider, 800);
+  } else {
+    startSlider();
   }
-
-  function goToNextSlide() {
-    if (isAnimating) return;
-    isAnimating = true;
-
-    const prevIndex = currentIndex;
-    currentIndex = (currentIndex + 1) % totalSlides;
-
-    const currentSlide = slides[prevIndex];
-    const nextSlide = slides[currentIndex];
-
-    updateBrandingAccent(currentIndex);
-
-    // Prepare next slide at bottom position
-    gsap.set(nextSlide, { y: "100%", opacity: 0, autoAlpha: 1 });
-
-    const tl = gsap.timeline({
-      onComplete: () => {
-        gsap.set(currentSlide, { autoAlpha: 0 });
-        currentSlide.classList.remove("active");
-        nextSlide.classList.add("active");
-        isAnimating = false;
-      }
-    });
-
-    // Animate current out (upwards)
-    tl.to(currentSlide, {
-      y: "-100%",
-      opacity: 0,
-      duration: 0.6,
-      ease: "power3.inOut"
-    }, 0);
-
-    // Animate next in (from bottom to center)
-    tl.to(nextSlide, {
-      y: "0%",
-      opacity: 1,
-      duration: 0.6,
-      ease: "power3.inOut"
-    }, 0);
-  }
-
-  setInterval(goToNextSlide, 3000);
 }
 
 function buildHandPath(W, H) {

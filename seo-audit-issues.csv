@@ -1,0 +1,14 @@
+page,category,issue,severity,recommendation
+sitemap.xml,Crawlability & Indexation,Sitemap contains deprecated .html URLs instead of clean paths,High,Change loc tags in sitemap to clean URLs.
+index.html,On-Page Optimization,Missing local H1 tag in hero banner,High,Change main hero title span to H1.
+agent.html,On-Page Optimization,Missing local H1 tag in hero banner,High,Change section heading to H1.
+contact.html,On-Page Optimization,Missing local H1 tag in hero banner,High,Change section heading to H1.
+All HTML pages,Crawlability & Indexation,Embedded SPA outputs all pages code causing duplicate content,Critical,Decouple HTML templates so each file only outputs its own code.
+All HTML pages,Technical Foundations,Google Fonts stylesheet load causes layout shifts (CLS),Medium,Add link preload tags for critical font files (.woff2).
+All HTML pages,Content Quality & E-E-A-T,Missing domain trust legal documents (Privacy / Terms),Medium,Create dedicated privacy-policy and terms pages.
+llms.txt,Crawlability & Indexation,LLMs machine instruction file links to deprecated .html URLs,Low,Update llms.txt to use clean path URLs.
+index.html,On-Page Optimization,Meta description exceeds recommended length (184 chars),Medium,Trim description to under 155 chars.
+agent.html,On-Page Optimization,Meta description exceeds recommended length (199 chars),Medium,Trim description to under 155 chars.
+platform.html,On-Page Optimization,Meta description exceeds recommended length (170 chars),Medium,Trim description to under 155 chars.
+solutions.html,On-Page Optimization,Meta description exceeds recommended length (170 chars),Medium,Trim description to under 155 chars.
+pricing.html,On-Page Optimization,Meta description exceeds recommended length (163 chars),Medium,Trim description to under 155 chars.
