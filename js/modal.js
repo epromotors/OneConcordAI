@@ -265,7 +265,7 @@
       <div class="demo-modal-success" id="demoModalSuccess">
         <div class="demo-modal-success-icon">✓</div>
         <h3 class="demo-modal-title" style="color: var(--accent, #B5F2DB);">Request Received</h3>
-        <p class="demo-modal-subtitle" style="margin-top: 8px;">Our team in Dubai will reach out within 4 business hours to schedule your live demo.</p>
+        <p class="demo-modal-subtitle" style="margin-top: 8px;">Our team will reach out within 4 business hours to schedule your live demo.</p>
       </div>
     </div>
   `;
