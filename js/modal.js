@@ -134,9 +134,10 @@
       display: none;
     }
     .demo-modal-success-icon {
-      font-size: 48px;
-      color: var(--accent, #B5F2DB);
-      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
       animation: demoScaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     @keyframes demoScaleIn {
@@ -263,7 +264,9 @@
       </div>
 
       <div class="demo-modal-success" id="demoModalSuccess">
-        <div class="demo-modal-success-icon">✓</div>
+        <div class="demo-modal-success-icon">
+          <img src="OneConcord_Logo.png" alt="OneConcord AI" style="height:48px;width:auto;display:block;margin:0 auto;" />
+        </div>
         <h3 class="demo-modal-title" style="color: var(--accent, #B5F2DB);">Request Received</h3>
         <p class="demo-modal-subtitle" style="margin-top: 8px;">Our team will reach out within 4 business hours to schedule your live demo.</p>
       </div>

@@ -220,8 +220,7 @@ function user_html_template(array $data): string {
         <!-- Header -->
         <tr>
           <td style="background:linear-gradient(135deg,#042F34,#16232B);padding:36px 36px 28px;text-align:center;border-bottom:1px solid #1e3040;">
-            <div style="font-size:42px;margin-bottom:12px;">✓</div>
-            <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;color:#B5F2DB;text-transform:uppercase;margin-bottom:8px;">OneConcord AI</div>
+            <img src="https://oneconcord.ai/OneConcord_Logo.png" alt="OneConcord AI" width="160" height="auto" style="display:block;margin:0 auto 18px;max-width:160px;height:auto;" />
             <div style="font-size:22px;font-weight:800;color:#ffffff;">We've Got Your Message</div>
           </td>
         </tr>
@@ -233,7 +232,7 @@ function user_html_template(array $data): string {
               Thank you for reaching out to <strong style="color:#B5F2DB;">OneConcord AI</strong>. We have received your message and our team will review it shortly.
             </p>
             <p style="font-size:15px;color:#94a3b8;line-height:1.8;margin:0 0 32px;">
-              If you requested a live demo, a member of our Dubai team will follow up within <strong style="color:#FFC933;">4 business hours</strong> to coordinate your session.
+              If you requested a live demo, our team will follow up within <strong style="color:#FFC933;">4 business hours</strong> to coordinate your session.
             </p>
             <div style="text-align:center;">
               <a href="https://oneconcord.ai" style="display:inline-block;background:#FFC933;color:#16232B;font-weight:700;font-size:14px;padding:13px 28px;border-radius:8px;text-decoration:none;letter-spacing:0.02em;">Visit OneConcord AI →</a>
@@ -288,7 +287,7 @@ function user_text_template(array $data): string {
     $greeting = $name !== '' ? 'Hi ' . $name . ',' : 'Hi,';
     return $greeting . "\n\n"
         . "Thank you for contacting OneConcord AI. We have received your message and our team will review it shortly.\n\n"
-        . "If you requested a live demo, a member of our Dubai team will follow up within 4 business hours to coordinate your session.\n\n"
+        . "If you requested a live demo, our team will follow up within 4 business hours to coordinate your session.\n\n"
         . "Regards,\n"
         . "OneConcord AI\n"
         . "https://oneconcord.ai";

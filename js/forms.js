@@ -85,7 +85,7 @@
       form.style.display = 'none';
       const banner       = document.createElement('div');
       banner.style.cssText = 'text-align:center;padding:20px 8px;animation:fadeInUp 0.4s ease';
-      banner.innerHTML     = '<div style="font-size:36px;margin-bottom:10px;color:#B5F2DB">✓</div>'
+      banner.innerHTML     = '<div style="margin-bottom:14px;"><img src="OneConcord_Logo.png" alt="OneConcord AI" style="height:40px;width:auto;display:block;margin:0 auto;" /></div>'
         + '<div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:6px">Message sent!</div>'
         + '<div style="font-size:13px;color:rgba(228,238,240,0.7)">Our team will reach out within 4 business hours.</div>';
       container.appendChild(banner);
