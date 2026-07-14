@@ -3799,10 +3799,6 @@ function buildPricing() {
 
         ['ISO 27001 / SOC 2 aligned', check(), check(), check(), check()],
 
-        ['SOC 2 Type II evidence', dash(), dash(), check(), check()],
-
-        ['NESA / PDPL / PCI DSS', dash(), 'NESA, ISO 27001', 'All standards', 'Government-ready'],
-
         ['Private / sovereign cloud', dash(), dash(), dash(), check(true)],
 
       ]
