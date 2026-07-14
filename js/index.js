@@ -3633,7 +3633,7 @@ function buildPricing() {
 
       btnText: 'Get Enterprise access',
 
-      features: ['9 active agents','Up to 2,000 users','30 connectors','All portal screens + Admin Console','Full audit trail — 90-day retention','SSO (SAML / OIDC) + MFA enforced','4-hour P1 / 8-hour P2 SLA','Dedicated customer success manager','SOC 2 Type II evidence package','NESA, PDPL, ISO 27001, PCI DSS','GCC Cloud compliant · AWS region choice']
+      features: ['9 active agents','Up to 2,000 users','30 connectors','All portal screens + Admin Console','Full audit trail — 90-day retention','SSO (SAML / OIDC) + MFA enforced','4-hour P1 / 8-hour P2 SLA','Dedicated customer success manager','ISO 27001 & SOC 2 aligned','GCC Cloud compliant · AWS region choice']
 
     },
 
