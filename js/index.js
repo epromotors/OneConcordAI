@@ -3611,7 +3611,7 @@ function buildPricing() {
 
       btnText: 'Start with Professional',
 
-      features: ['6 active agents','Up to 500 users','20 connectors','Admin Console + policy editor','Full audit trail — 30-day retention','SSO (SAML / OIDC)','4-hour SLA for P1 incidents','NESA, ISO 27001, SOC 2 aligned','GCC Cloud compliant']
+      features: ['6 active agents','Up to 500 users','20 connectors','Admin Console + policy editor','Full audit trail — 30-day retention','SSO (SAML / OIDC)','4-hour SLA for P1 incidents','ISO 27001 & SOC 2 aligned','GCC Cloud compliant']
 
     },
 
