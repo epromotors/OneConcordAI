@@ -3653,7 +3653,7 @@ function buildPricing() {
 
       btnText: 'Talk to our team',
 
-      features: ['All 12 agents + all connectors','Unlimited users','Single-tenant or private cloud','On-premises deployment available','Full audit trail — 1-year retention','Bring your own VPC (BYOVPC)','Custom LLM configuration','Dedicated security & architecture review','Custom SLAs and escalation paths','Compliance: -, Standard, Government Ready']
+      features: ['All 12 agents + all connectors','Unlimited users','Single-tenant or private cloud','On-premises deployment available','Full audit trail — 1-year retention','Bring your own VPC (BYOVPC)','Custom LLM configuration','Dedicated security & architecture review','Custom SLAs and escalation paths','Compliance: Standard, Government Ready']
 
     },
 
