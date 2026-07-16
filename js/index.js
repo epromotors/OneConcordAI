@@ -569,6 +569,23 @@ function buildNav() {
   navEnd.appendChild(startBtn);
 
 
+  // Inject Mobile Login / Sign Up Button next to hamburger button
+  var headerInner = document.querySelector('#site-header .header-inner');
+  var mobileBtn = document.querySelector('#site-header .nav-mobile-btn');
+  if (headerInner && mobileBtn) {
+    var existingMobLogin = document.getElementById('navMobileLogin');
+    if (!existingMobLogin) {
+      var mobLoginBtn = document.createElement('a');
+      mobLoginBtn.id = 'navMobileLogin';
+      mobLoginBtn.className = 'btn btn-outline btn-sm nav-mobile-login';
+      mobLoginBtn.textContent = 'Login / Sign Up';
+      mobLoginBtn.href = 'https://demo.oneconcord.ai/';
+      mobLoginBtn.target = '_blank';
+      headerInner.insertBefore(mobLoginBtn, mobileBtn);
+    }
+  }
+
+
 
   var mobLinks = document.getElementById('mobLinks');
 
