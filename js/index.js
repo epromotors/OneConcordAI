@@ -541,6 +541,12 @@ function buildNav() {
 
   
 
+  var loginBtn = document.createElement('a');
+
+  loginBtn.className = 'btn btn-outline btn-sm'; loginBtn.textContent = 'Login / Sign Up'; loginBtn.href = 'https://demo.oneconcord.ai/'; loginBtn.target = '_blank';
+
+
+
   var startBtn = document.createElement('a');
 
   startBtn.className = 'btn btn-primary btn-sm'; startBtn.textContent = 'Get Started →';
@@ -557,6 +563,8 @@ function buildNav() {
 
 
   navEnd.appendChild(demoBtn);
+
+  navEnd.appendChild(loginBtn);
 
   navEnd.appendChild(startBtn);
 
@@ -688,7 +696,15 @@ function buildNav() {
     btnRow.appendChild(demoBtn);
     btnRow.appendChild(contactBtn);
 
+    var loginBtn = document.createElement('a');
+    loginBtn.className = 'button button-secondary';
+    loginBtn.style.width = '100%';
+    loginBtn.textContent = 'Login / Sign Up';
+    loginBtn.href = 'https://demo.oneconcord.ai/';
+    loginBtn.target = '_blank';
+
     ctaBlock.appendChild(btnRow);
+    ctaBlock.appendChild(loginBtn);
     ctaBlock.appendChild(socialNav);
 
     mobLinks.appendChild(ctaBlock);
