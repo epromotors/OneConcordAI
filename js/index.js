@@ -505,7 +505,7 @@ function buildNav() {
 
 
 
-  ['Home|home','Platform|platform','Agents|agents','Solutions|solutions','Pricing|pricing','About|about'].forEach(function(pair){
+  ['Home|home','Platform|platform','Agents|agents','Solutions|solutions','Pricing|pricing','Contact us|contact'].forEach(function(pair){
 
     var parts = pair.split('|');
 
@@ -592,8 +592,7 @@ function buildNav() {
       { label: 'Agents', page: 'agents', desc: 'AI systems' },
       { label: 'Solutions', page: 'solutions', desc: 'Use cases' },
       { label: 'Pricing', page: 'pricing', desc: 'Plans' },
-      { label: 'About', page: 'about', desc: 'Company' },
-      { label: 'Contact', page: 'contact', desc: 'Get in touch' }
+      { label: 'Contact us', page: 'contact', desc: 'Get in touch' }
     ];
 
     // Determine current active page
