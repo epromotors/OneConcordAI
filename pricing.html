@@ -26,7 +26,7 @@
 
   <!-- PRIMARY SEO -->
   <title>Pricing for Enterprise AI Agents | OneConcord AI</title>
-  <meta name="description" content="Review OneConcord AI pricing for Essential, Professional, Enterprise, and Enterprise Plus plans. Predictable monthly pricing for autonomous enterprise AI agents." />
+  <meta name="description" content="Review OneConcord AI pricing for Essential, Growth, Advance, Scale, and Enterprise plans. Predictable monthly pricing for autonomous enterprise AI agents." />
   <meta name="keywords" content="AI agent pricing, enterprise AI pricing, autonomous AI pricing, IT automation pricing, security automation pricing, OneConcord AI pricing" />
   <meta name="author" content="OneConcord AI, Inc." />
   <meta name="publisher" content="OneConcord AI, Inc." />
@@ -47,7 +47,7 @@
   <meta property="og:site_name" content="OneConcord AI" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="Pricing for Enterprise AI Agents | OneConcord AI" />
-  <meta property="og:description" content="Review OneConcord AI pricing for Essential, Professional, Enterprise, and Enterprise Plus plans. Predictable monthly pricing for autonomous enterprise AI agents." />
+  <meta property="og:description" content="Review OneConcord AI pricing for Essential, Growth, Advance, Scale, and Enterprise plans. Predictable monthly pricing for autonomous enterprise AI agents." />
   <meta property="og:image" content="https://oneconcord.ai/og-image.png" />
   <meta property="og:image:secure_url" content="https://oneconcord.ai/og-image.png" />
   <meta property="og:image:type" content="image/png" />
@@ -62,7 +62,7 @@
   <meta name="twitter:creator" content="@oneconcord_ai" />
   <meta name="twitter:url" content="https://oneconcord.ai/pricing" />
   <meta name="twitter:title" content="Pricing for Enterprise AI Agents | OneConcord AI" />
-  <meta name="twitter:description" content="Review OneConcord AI pricing for Essential, Professional, Enterprise, and Enterprise Plus plans. Predictable monthly pricing for autonomous enterprise AI agents." />
+  <meta name="twitter:description" content="Review OneConcord AI pricing for Essential, Growth, Advance, Scale, and Enterprise plans. Predictable monthly pricing for autonomous enterprise AI agents." />
   <meta name="twitter:image" content="https://oneconcord.ai/og-image.png" />
   <meta name="twitter:image:alt" content="Pricing for Enterprise AI Agents | OneConcord AI" />
 
@@ -126,7 +126,7 @@
       "url": "https://oneconcord.ai/pricing",
       "name": "Pricing for Enterprise AI Agents | OneConcord AI",
       "headline": "Pricing for Enterprise AI Agents | OneConcord AI",
-      "description": "Review OneConcord AI pricing for Essential, Professional, Enterprise, and Enterprise Plus plans. Predictable monthly pricing for autonomous enterprise AI agents.",
+      "description": "Review OneConcord AI pricing for Essential, Growth, Advance, Scale, and Enterprise plans. Predictable monthly pricing for autonomous enterprise AI agents.",
       "isPartOf": {
         "@id": "https://oneconcord.ai/#website"
       },
@@ -157,21 +157,28 @@
           },
           {
             "@type": "Offer",
-            "name": "Professional",
+            "name": "Growth",
             "price": "1999",
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock"
           },
           {
             "@type": "Offer",
-            "name": "Enterprise",
+            "name": "Advance",
+            "price": "2999",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Scale",
             "price": "3999",
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock"
           },
           {
             "@type": "Offer",
-            "name": "Enterprise Plus",
+            "name": "Enterprise",
             "priceSpecification": {
               "@type": "PriceSpecification",
               "price": "0",
@@ -1570,9 +1577,118 @@
 
         <div class="container">
 
-          <div id="pricingGrid">
+          <div id="pricingGrid" class="pricing-grid" data-built="1">
 
-            <!-- Populated dynamically via index.js -->
+            <div class="price-card fade-up">
+              <div style="font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--text-3);margin-bottom:6px">Up to 100 users</div>
+              <div class="p-name">Essential</div>
+              <div class="p-amt" style="font-size:32px">$999</div>
+              <div class="p-period">per month &middot; annual billing</div>
+              <hr style="border-color:rgba(255,255,255,.08);margin:16px 0"/>
+              <ul class="p-list">
+                <li>3 active agents</li>
+                <li>Up to 100 users</li>
+                <li>10 connectors</li>
+                <li>Employee self-service portal</li>
+                <li>Full audit trail &mdash; 7-day retention</li>
+                <li>Email + Teams notifications</li>
+                <li>Role-based access control</li>
+                <li>Data encrypted in transit &amp; at rest</li>
+                <li>Standard SLA (next business day)</li>
+              </ul>
+              <button class="btn btn-outline btn-full" onclick="go('contact')">Start with Essential</button>
+            </div>
+
+            <div class="price-card fade-up">
+              <div style="font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--text-3);margin-bottom:6px">100 &ndash; 250 users</div>
+              <div class="p-name">Growth</div>
+              <div class="p-amt" style="font-size:32px">$1,999</div>
+              <div class="p-period">per month &middot; annual billing</div>
+              <hr style="border-color:rgba(255,255,255,.08);margin:16px 0"/>
+              <ul class="p-list">
+                <li>6 active agents</li>
+                <li>100 &ndash; 250 users</li>
+                <li>20 connectors</li>
+                <li>Everything in Essential, plus:</li>
+                <li>Admin Console + Agents Dashboard</li>
+                <li>Approval workflows</li>
+                <li>Slack notifications</li>
+                <li>Audit trail &mdash; 30-day retention</li>
+                <li>8-hour SLA for P1 incidents</li>
+              </ul>
+              <button class="btn btn-ghost btn-full" onclick="go('contact')">Start with Growth</button>
+            </div>
+
+            <div class="price-card fade-up">
+              <div style="font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--text-3);margin-bottom:6px">251 &ndash; 500 users</div>
+              <div class="p-name">Advance</div>
+              <div class="p-amt" style="font-size:32px">$2,999</div>
+              <div class="p-period">per month &middot; annual billing</div>
+              <hr style="border-color:rgba(255,255,255,.08);margin:16px 0"/>
+              <ul class="p-list">
+                <li>9 active agents</li>
+                <li>251 &ndash; 500 users</li>
+                <li>25 connectors</li>
+                <li>Everything in Growth, plus:</li>
+                <li>Audit trail &mdash; 60-day retention</li>
+                <li>SSO (SAML / OIDC) + MFA</li>
+                <li>4-hour SLA for P1 incidents</li>
+                <li>Priority support queue</li>
+                <li>Usage &amp; activity reports</li>
+                <li>Agent performance analytics</li>
+                <li>Scheduled reports &amp; exports (CSV / PDF)</li>
+                <li>Knowledge base + guided onboarding</li>
+              </ul>
+              <button class="btn btn-ghost btn-full" onclick="go('contact')">Start with Advance</button>
+            </div>
+
+            <div class="price-card featured fade-up">
+              <div class="price-badge">Most popular</div>
+              <div style="font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--text-3);margin-bottom:6px">500 &ndash; 1,000 users</div>
+              <div class="p-name">Scale</div>
+              <div class="p-amt" style="font-size:32px">$3,999</div>
+              <div class="p-period">per month &middot; annual billing</div>
+              <hr style="border-color:rgba(255,255,255,.08);margin:16px 0"/>
+              <ul class="p-list">
+                <li>12 active agents</li>
+                <li>500 &ndash; 1,000 users</li>
+                <li>30 connectors</li>
+                <li>Everything in Advance, plus:</li>
+                <li>Audit trail &mdash; 90-day retention</li>
+                <li>4-hour P1 / 8-hour P2 SLA</li>
+                <li>Dedicated customer success manager</li>
+                <li>GCC Cloud compliant</li>
+                <li>AWS region choice</li>
+                <li>Custom dashboards &amp; report builder</li>
+                <li>Executive summary reports (monthly / quarterly)</li>
+                <li>ROI &amp; cost-savings reports</li>
+              </ul>
+              <button class="btn btn-primary btn-full" onclick="go('contact')">Get Scale access</button>
+            </div>
+
+            <div class="price-card fade-up">
+              <div style="font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--text-3);margin-bottom:6px">1,000+ users &middot; Custom</div>
+              <div class="p-name">Enterprise</div>
+              <div class="p-amt" style="font-size:32px">Custom</div>
+              <div class="p-period">tailored deployment</div>
+              <hr style="border-color:rgba(255,255,255,.08);margin:16px 0"/>
+              <ul class="p-list">
+                <li>12 agents + custom agents</li>
+                <li>1,000+ users</li>
+                <li>All connectors + custom</li>
+                <li>Everything in Scale, plus:</li>
+                <li>Customizable UI/UX</li>
+                <li>Advanced analytics + BI integrations</li>
+                <li>Audit trail &mdash; 1-year retention</li>
+                <li>Custom identity federation</li>
+                <li>Custom SLAs and escalation paths</li>
+                <li>CSM + Solution Architect</li>
+                <li>Single-tenant, private cloud or on-premises</li>
+                <li>BYOVPC + custom LLM configuration</li>
+                <li>Compliance: Government Ready</li>
+              </ul>
+              <button class="btn btn-gold btn-full" onclick="go('contact')">Talk to our team</button>
+            </div>
 
           </div>
 
@@ -1586,7 +1702,77 @@
 
             <div id="compareTable">
 
-              <!-- Populated dynamically via index.js -->
+              <div class="cmp-wrap fade-up">
+                <div class="cmp-scroll">
+                  <table class="cmp-table">
+                    <thead>
+                      <tr>
+                        <th style="text-align:left;vertical-align:middle;"><span style="font-size:12px;font-weight:700;color:var(--text-2);">Feature</span></th>
+                        <th><div class="cmp-th-plan"><span class="cmp-th-name">Essential</span><span class="cmp-th-price">$999</span><span class="cmp-th-tier">/ mo &middot; up to 100 users</span></div></th>
+                        <th><div class="cmp-th-plan"><span class="cmp-th-name">Growth</span><span class="cmp-th-price">$1,999</span><span class="cmp-th-tier">/ mo &middot; 100-250 users</span></div></th>
+                        <th><div class="cmp-th-plan"><span class="cmp-th-name">Advance</span><span class="cmp-th-price">$2,999</span><span class="cmp-th-tier">/ mo &middot; 251-500 users</span></div></th>
+                        <th class="th-ent"><div class="cmp-popular-badge">Most popular</div><div class="cmp-th-plan"><span class="cmp-th-name">Scale</span><span class="cmp-th-price">$3,999</span><span class="cmp-th-tier">/ mo &middot; 500-1,000 users</span></div></th>
+                        <th class="th-sov"><div class="cmp-th-plan"><span class="cmp-th-name">Enterprise</span><span class="cmp-th-price">Custom</span><span class="cmp-th-tier">1,000+ &middot; tailored</span></div></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="cmp-group-row"><td colspan="6">Capacity</td></tr>
+                      <tr><td>Users</td><td style="color:var(--text-3)">Up to 100</td><td style="color:var(--text-2)">100-250</td><td>251-500</td><td class="td-ent">500-1,000</td><td class="td-sov">1,000+</td></tr>
+                      <tr><td>Active Agents</td><td style="color:var(--text-3)">3</td><td style="color:var(--text-2)">6</td><td>9</td><td class="td-ent">12</td><td class="td-sov">12 + custom</td></tr>
+                      <tr><td>Connectors</td><td style="color:var(--text-3)">10</td><td style="color:var(--text-2)">20</td><td>25</td><td class="td-ent">30</td><td class="td-sov">All + custom</td></tr>
+
+                      <tr class="cmp-group-row"><td colspan="6">Platform</td></tr>
+                      <tr><td>Employee self-service portal</td><td style="color:var(--text-3)"><span class="cmp-check">&#10003;</span></td><td style="color:var(--text-2)"><span class="cmp-check">&#10003;</span></td><td><span class="cmp-check">&#10003;</span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Admin Console + Agents Dashboard</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-check">&#10003;</span></td><td><span class="cmp-check">&#10003;</span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Approval workflows</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-check">&#10003;</span></td><td><span class="cmp-check">&#10003;</span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Knowledge base + guided onboarding</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-check">&#10003;</span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Customizable UI/UX</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-dash"></span></td><td class="td-ent"><span class="cmp-dash"></span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Audit trail retention</td><td style="color:var(--text-3)">7 days</td><td style="color:var(--text-2)">30 days</td><td>60 days</td><td class="td-ent">90 days</td><td class="td-sov">1 year</td></tr>
+                      <tr><td>Notifications</td><td style="color:var(--text-3)">Email + Teams</td><td style="color:var(--text-2)">Email + Teams + Slack</td><td>Email + Teams + Slack</td><td class="td-ent">Email + Teams + Slack</td><td class="td-sov">Email + Teams + Slack</td></tr>
+                      <tr><td>Custom LLM config</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-dash"></span></td><td class="td-ent"><span class="cmp-dash"></span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+
+                      <tr class="cmp-group-row"><td colspan="6">Reporting &amp; Analytics</td></tr>
+                      <tr><td>Usage &amp; activity reports</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-check">&#10003;</span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Agent performance analytics</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-check">&#10003;</span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Scheduled reports &amp; exports (CSV / PDF)</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-check">&#10003;</span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Custom dashboards &amp; report builder</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-dash"></span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Executive summary reports</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-dash"></span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>ROI &amp; cost-savings reports</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-dash"></span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Advanced analytics + BI integrations</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-dash"></span></td><td class="td-ent"><span class="cmp-dash"></span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+
+                      <tr class="cmp-group-row"><td colspan="6">Identity &amp; Access</td></tr>
+                      <tr><td>Role-based access control</td><td style="color:var(--text-3)"><span class="cmp-check">&#10003;</span></td><td style="color:var(--text-2)"><span class="cmp-check">&#10003;</span></td><td><span class="cmp-check">&#10003;</span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Data encryption (in transit &amp; at rest)</td><td style="color:var(--text-3)"><span class="cmp-check">&#10003;</span></td><td style="color:var(--text-2)"><span class="cmp-check">&#10003;</span></td><td><span class="cmp-check">&#10003;</span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>SSO (SAML / OIDC)</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-check">&#10003;</span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>MFA</td><td style="color:var(--text-3)">Admins only</td><td style="color:var(--text-2)">Admins only</td><td>All users</td><td class="td-ent">All users</td><td class="td-sov">All users</td></tr>
+                      <tr><td>Custom identity federation</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-dash"></span></td><td class="td-ent"><span class="cmp-dash"></span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>BYOVPC / On-prem</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-dash"></span></td><td class="td-ent"><span class="cmp-dash"></span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Data residency</td><td style="color:var(--text-3)">Shared cloud</td><td style="color:var(--text-2)">Shared cloud</td><td>Shared cloud</td><td class="td-ent">AWS region choice</td><td class="td-sov">BYOVPC / On-prem</td></tr>
+
+                      <tr class="cmp-group-row"><td colspan="6">Compliance</td></tr>
+                      <tr><td>GCC Cloud</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-dash"></span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Government Ready</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-dash"></span></td><td class="td-ent"><span class="cmp-dash"></span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Private / sovereign cloud</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-dash"></span></td><td class="td-ent"><span class="cmp-dash"></span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+
+                      <tr class="cmp-group-row"><td colspan="6">Support</td></tr>
+                      <tr><td>Support SLA</td><td style="color:var(--text-3)">Next business day</td><td style="color:var(--text-2)">8h P1</td><td>4h P1</td><td class="td-ent">4h P1 / 8h P2</td><td class="td-sov">Custom SLAs</td></tr>
+                      <tr><td>Priority support queue</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-check">&#10003;</span></td><td class="td-ent"><span class="cmp-check">&#10003;</span></td><td class="td-sov"><span class="cmp-check cmp-check-gold">&#10003;</span></td></tr>
+                      <tr><td>Customer success manager</td><td style="color:var(--text-3)"><span class="cmp-dash"></span></td><td style="color:var(--text-2)"><span class="cmp-dash"></span></td><td><span class="cmp-dash"></span></td><td class="td-ent">Dedicated</td><td class="td-sov">CSM + Solution Architect</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="cmp-mobile-wrapper">
+                <div class="cmp-mobile-tabs">
+                  <button class="cmp-m-tab" onclick="switchMobileComparePlan(0, this)">Essential</button>
+                  <button class="cmp-m-tab" onclick="switchMobileComparePlan(1, this)">Growth</button>
+                  <button class="cmp-m-tab" onclick="switchMobileComparePlan(2, this)">Advance</button>
+                  <button class="cmp-m-tab active" onclick="switchMobileComparePlan(3, this)">Scale</button>
+                  <button class="cmp-m-tab" onclick="switchMobileComparePlan(4, this)">Enterprise</button>
+                </div>
+                <div class="cmp-mobile-list" id="cmpMobileList"></div>
+              </div>
 
             </div>
 
@@ -1907,6 +2093,77 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/index.js?v=3.2"></script>
+  <script>
+    window.PRICING_GROUPS = [
+      {
+        label: 'Capacity',
+        rows: [
+          ['Users', 'Up to 100', '100-250', '251-500', '500-1,000', '1,000+'],
+          ['Active Agents', '3', '6', '9', '12', '12 + custom'],
+          ['Connectors', '10', '20', '25', '30', 'All + custom']
+        ]
+      },
+      {
+        label: 'Platform',
+        rows: [
+          ['Employee self-service portal', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Admin Console + Agents Dashboard', '<span class="cmp-dash"></span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Approval workflows', '<span class="cmp-dash"></span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Knowledge base + guided onboarding', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Customizable UI/UX', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Audit trail retention', '7 days', '30 days', '60 days', '90 days', '1 year'],
+          ['Notifications', 'Email + Teams', 'Email + Teams + Slack', 'Email + Teams + Slack', 'Email + Teams + Slack', 'Email + Teams + Slack'],
+          ['Custom LLM config', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>']
+        ]
+      },
+      {
+        label: 'Reporting & Analytics',
+        rows: [
+          ['Usage & activity reports', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Agent performance analytics', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Scheduled reports & exports (CSV / PDF)', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Custom dashboards & report builder', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Executive summary reports', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['ROI & cost-savings reports', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Advanced analytics + BI integrations', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>']
+        ]
+      },
+      {
+        label: 'Identity & Access',
+        rows: [
+          ['Role-based access control', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Data encryption (in transit & at rest)', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['SSO (SAML / OIDC)', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['MFA', 'Admins only', 'Admins only', 'All users', 'All users', 'All users'],
+          ['Custom identity federation', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['BYOVPC / On-prem', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Data residency', 'Shared cloud', 'Shared cloud', 'Shared cloud', 'AWS region choice', 'BYOVPC / On-prem']
+        ]
+      },
+      {
+        label: 'Compliance',
+        rows: [
+          ['GCC Cloud', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Government Ready', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Private / sovereign cloud', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>']
+        ]
+      },
+      {
+        label: 'Support',
+        rows: [
+          ['Support SLA', 'Next business day', '8h P1', '4h P1', '4h P1 / 8h P2', 'Custom SLAs'],
+          ['Priority support queue', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check">&#10003;</span>', '<span class="cmp-check cmp-check-gold">&#10003;</span>'],
+          ['Customer success manager', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', '<span class="cmp-dash"></span>', 'Dedicated', 'CSM + Solution Architect']
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof switchMobileComparePlan === 'function') {
+        switchMobileComparePlan(3);
+      }
+    });
+  </script>
 
   <script src="js/agents2.js"></script>
 
