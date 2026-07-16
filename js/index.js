@@ -531,11 +531,20 @@ function buildNav() {
 
 
 
+  var demoBtn = document.createElement('a');
+
+  demoBtn.className = 'btn btn-ghost btn-sm'; demoBtn.textContent = 'Book a Demo'; demoBtn.href = pageUrl('contact');
+
+  demoBtn.onclick = function(e) {
+    if (!isStaticPageMode() || getStaticPageId() === 'contact') {
+      e.preventDefault();
+      go('contact');
+    }
+  };
+
   var loginBtn = document.createElement('a');
 
   loginBtn.className = 'btn btn-outline btn-sm'; loginBtn.textContent = 'Login / Sign Up'; loginBtn.href = 'https://demo.oneconcord.ai/'; loginBtn.target = '_blank';
-
-
 
   var startBtn = document.createElement('a');
 
@@ -550,9 +559,7 @@ function buildNav() {
     }
   };
 
-
-
-
+  navEnd.appendChild(demoBtn);
 
   navEnd.appendChild(startBtn);
 
