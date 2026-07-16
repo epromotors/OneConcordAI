@@ -3063,7 +3063,7 @@ footer { background: rgba(22, 35, 43, 0.96); border-top: 1px solid var(--border)
   .svg-container { display: none; }
 }
 
-@media(max-width:860px) {
+@media(max-width:1024px) {
   /* Hide desktop nav & CTAs, show hamburger */
   nav { display: none !important; }
   .header-ctas { display: none !important; }
@@ -4328,7 +4328,7 @@ footer { background: rgba(22, 35, 43, 0.96); border-top: 1px solid var(--border)
 }
 
 /* ── HEADER / NAV ── */
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
   .header-inner {
     padding: 0 18px;
   }
@@ -5397,7 +5397,7 @@ body {
 }
 
 /* ── 14. Navigation: hide main nav links on mobile ── */
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
   nav.main-nav {
     display: none;
   }
@@ -6127,43 +6127,40 @@ section {
 }
 
 @media (min-width: 1025px) {
-  /* --- Flexbox desktop layout: logo far-left, nav absolutely centered, buttons far-right --- */
+  /* --- Grid desktop layout: logo col 1 (auto), nav centered col 2 (1fr), buttons col 3 (auto) --- */
   .header-inner {
-    display: flex !important;
-    justify-content: space-between !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
     align-items: center !important;
+    gap: 20px !important;
     width: 100% !important;
     max-width: var(--max) !important;
     margin: 0 auto !important;
     padding: 0 clamp(20px, 5vw, 80px) !important;
-    position: relative !important;
   }
 
   .logo {
+    grid-column: 1 !important;
+    justify-self: start !important;
     flex-shrink: 0 !important;
     margin: 0 !important;
-    position: relative !important;
-    z-index: 2 !important;
   }
 
   nav#navLinks {
+    grid-column: 2 !important;
     display: flex !important;
     align-items: center !important;
+    justify-content: center !important;
     gap: 28px !important;
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 1 !important;
   }
 
   .header-ctas {
+    grid-column: 3 !important;
+    justify-self: end !important;
     display: flex !important;
     align-items: center !important;
     gap: 14px !important;
     flex-shrink: 0 !important;
-    margin-left: auto !important;
-    position: relative !important;
-    z-index: 2 !important;
   }
 
   .nav-a, .header-ctas .btn {
