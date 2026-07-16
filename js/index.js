@@ -554,9 +554,9 @@ function buildNav() {
 
 
 
-  navEnd.appendChild(loginBtn);
-
   navEnd.appendChild(startBtn);
+
+  navEnd.appendChild(loginBtn);
 
 
   // Inject Mobile Login / Sign Up Button next to hamburger button
