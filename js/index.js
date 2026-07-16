@@ -548,7 +548,7 @@ function buildNav() {
 
   var startBtn = document.createElement('a');
 
-  startBtn.className = 'btn btn-primary btn-sm'; startBtn.textContent = 'Get Started →';
+  startBtn.className = 'btn btn-primary btn-sm'; startBtn.textContent = 'Get Started';
 
   startBtn.href = pageUrl('contact');
 
