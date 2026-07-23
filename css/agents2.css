@@ -33,6 +33,24 @@
   overflow: hidden;
 }
 
+/* ── Desktop-only glow dot / starfield background layer ── */
+#ag-hero .ag-hero-stars-bg {
+  display: block;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Hide on mobile — preserve existing mobile layout exactly */
+@media (max-width: 767px) {
+  #ag-hero .ag-hero-stars-bg {
+    display: none;
+  }
+}
+
+
 .ag-hero-inner {
   position: relative;
   z-index: 2;
@@ -1956,5 +1974,11 @@
   .ag-tabs-inner,
   .ag-metric-row {
     max-width: none;
+  }
+}
+
+@media (min-width: 1401px) {
+  #ag-sticky-tabs {
+    top: 112px;
   }
 }

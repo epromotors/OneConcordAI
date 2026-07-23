@@ -14,6 +14,8 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
+      overflow-y: auto;
+      padding: 20px 0;
     }
     .demo-modal-overlay.open {
       opacity: 1;
@@ -30,6 +32,21 @@
       position: relative;
       transform: translateY(20px) scale(0.95);
       transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+    }
+    .demo-modal-container::-webkit-scrollbar {
+      width: 6px;
+    }
+    .demo-modal-container::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .demo-modal-container::-webkit-scrollbar-thumb {
+      background: rgba(181, 242, 219, 0.2);
+      border-radius: 10px;
+    }
+    .demo-modal-container::-webkit-scrollbar-thumb:hover {
+      background: rgba(181, 242, 219, 0.4);
     }
     .demo-modal-overlay.open .demo-modal-container {
       transform: translateY(0) scale(1);
@@ -189,14 +206,93 @@
     }
     @media (max-width: 768px) {
       .back-to-top {
-        bottom: 20px;
-        right: 20px;
+        bottom: 86px;
+        right: 16px;
         width: 40px;
         height: 40px;
       }
       .back-to-top svg {
         width: 18px;
         height: 18px;
+      }
+    }
+
+    /* ── Mobile Floating Bottom Bar ── */
+    .mob-float-bar {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .mob-float-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9998;
+        background: rgba(4, 24, 30, 0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-top: 1px solid rgba(181, 242, 219, 0.18);
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px)) 12px;
+        gap: 8px;
+        align-items: stretch;
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.45);
+      }
+      .mob-float-btn {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 8px 6px;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+        font-family: 'Space Grotesk', 'Manrope', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+      }
+      .mob-float-btn-demo {
+        background: var(--gold, #FFC933);
+        color: #16232B;
+      }
+      .mob-float-btn-demo:hover,
+      .mob-float-btn-demo:active {
+        background: #ffe082;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 201, 51, 0.4);
+      }
+      .mob-float-btn-pricing {
+        background: rgba(181, 242, 219, 0.1);
+        color: #B5F2DB;
+        border: 1px solid rgba(181, 242, 219, 0.25);
+      }
+      .mob-float-btn-pricing:hover,
+      .mob-float-btn-pricing:active {
+        background: rgba(181, 242, 219, 0.18);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(181, 242, 219, 0.2);
+      }
+      .mob-float-btn-msg {
+        background: rgba(255, 255, 255, 0.07);
+        color: rgba(228, 238, 240, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .mob-float-btn-msg:hover,
+      .mob-float-btn-msg:active {
+        background: rgba(255, 255, 255, 0.13);
+        transform: translateY(-2px);
+      }
+      .mob-float-btn svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
       }
     }
   `;
@@ -213,26 +309,38 @@
       
       <div id="demoModalFormContent">
         <div class="demo-modal-header">
-          <h3 class="demo-modal-title">Book a Live Demo</h3>
+          <h3 class="demo-modal-title">Book a Demo</h3>
           <p class="demo-modal-subtitle">Experience autonomous enterprise operations firsthand</p>
         </div>
         
         <form class="demo-modal-form" id="demoModalForm" data-form-type="demo">
           <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" />
+          
+          <div class="demo-modal-group">
+            <label class="demo-modal-label">Name</label>
+            <input class="demo-modal-input" type="text" name="name" autocomplete="name" placeholder="e.g. Sarah Miller" required />
+          </div>
+          
           <div class="demo-modal-form-row">
             <div class="demo-modal-group">
-              <label class="demo-modal-label">First name</label>
-              <input class="demo-modal-input" type="text" name="first_name" autocomplete="given-name" placeholder="e.g. Sarah" required />
+              <label class="demo-modal-label">Work email</label>
+              <input class="demo-modal-input" type="email" name="email" autocomplete="email" placeholder="e.g. sarah.m@novabank.com" required />
             </div>
             <div class="demo-modal-group">
-              <label class="demo-modal-label">Last name</label>
-              <input class="demo-modal-input" type="text" name="last_name" autocomplete="family-name" placeholder="e.g. Miller" required />
+              <label class="demo-modal-label">Contact number</label>
+              <input class="demo-modal-input" type="tel" name="phone" autocomplete="tel" placeholder="e.g. +1 (555) 019-2834" required />
             </div>
           </div>
           
-          <div class="demo-modal-group">
-            <label class="demo-modal-label">Work email</label>
-            <input class="demo-modal-input" type="email" name="email" autocomplete="email" placeholder="e.g. sarah.m@novabank.com" required />
+          <div class="demo-modal-form-row">
+            <div class="demo-modal-group">
+              <label class="demo-modal-label">Company name</label>
+              <input class="demo-modal-input" type="text" name="company" placeholder="e.g. NovaBank" required />
+            </div>
+            <div class="demo-modal-group">
+              <label class="demo-modal-label">Website</label>
+              <input class="demo-modal-input" type="text" name="company_website" placeholder="e.g. novabank.com" required />
+            </div>
           </div>
           
           <div class="demo-modal-group">
@@ -259,7 +367,7 @@
             </select>
           </div>
           
-          <button class="demo-modal-btn" type="submit">Submit Demo Request</button>
+          <button class="demo-modal-btn" type="submit">Send Message</button>
         </form>
       </div>
 
@@ -267,8 +375,8 @@
         <div class="demo-modal-success-icon">
           <img src="OneConcord_Logo.png" alt="OneConcord AI" style="height:48px;width:auto;display:block;margin:0 auto;" />
         </div>
-        <h3 class="demo-modal-title" style="color: var(--accent, #B5F2DB);">Request Received</h3>
-        <p class="demo-modal-subtitle" style="margin-top: 8px;">Our team will reach out within 4 business hours to schedule your live demo.</p>
+        <h3 class="demo-modal-title" style="color: var(--accent, #B5F2DB);">Message Sent</h3>
+        <p class="demo-modal-subtitle" style="margin-top: 8px;">Our team will reach out within 4 business hours.</p>
       </div>
     </div>
   `;
@@ -384,7 +492,7 @@
   // Re-bind periodically (useful for dynamically rendered elements or page transitions)
   setInterval(bindDemoButtons, 1000);
 
-  // ── Inject Back to Top and WhatsApp Buttons ──
+  // ── Inject Back to Top Button and Mobile Floating Bar ──
   function initFloatingButtons() {
     if (document.getElementById('back-to-top')) return;
 
@@ -417,6 +525,86 @@
         top: 0,
         behavior: 'smooth'
       });
+    });
+
+    // 2. Mobile Floating Bottom Bar (mobile only — CSS hides it on desktop)
+    if (document.getElementById('mobFloatBar')) return;
+
+    // Determine the pricing page path relative to current page
+    var pricingHref = 'pricing.html';
+    var currentPath = window.location.pathname;
+    // If we are already on pricing.html, keep the link but mark it active
+    var onPricing = currentPath.endsWith('pricing.html') || currentPath.endsWith('pricing');
+
+    var bar = document.createElement('div');
+    bar.id = 'mobFloatBar';
+    bar.className = 'mob-float-bar';
+    bar.setAttribute('role', 'navigation');
+    bar.setAttribute('aria-label', 'Quick actions');
+    bar.innerHTML = `
+      <button
+        class="mob-float-btn mob-float-btn-demo"
+        id="mobFloatDemo"
+        type="button"
+        aria-label="Book a Demo"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <polyline points="8 21 12 17 16 21"/>
+        </svg>
+        Demo
+      </button>
+
+      <a
+        class="mob-float-btn mob-float-btn-pricing"
+        id="mobFloatPricing"
+        href="${pricingHref}"
+        aria-label="View Pricing"
+        ${onPricing ? 'aria-current="page"' : ''}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        Pricing
+      </a>
+
+      <a
+        class="mob-float-btn mob-float-btn-msg"
+        id="mobFloatMsg"
+        href="#contact"
+        aria-label="Send us a message"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Message
+      </a>
+    `;
+    document.body.appendChild(bar);
+
+    // Wire up Demo button
+    document.getElementById('mobFloatDemo').addEventListener('click', function(e) {
+      e.preventDefault();
+      if (typeof openModal === 'function') {
+        openModal();
+      } else if (typeof window.openBookDemoModal === 'function') {
+        window.openBookDemoModal();
+      }
+    });
+
+    // Wire up Message button to scroll to contact section
+    document.getElementById('mobFloatMsg').addEventListener('click', function(e) {
+      e.preventDefault();
+      var contactSection = document.getElementById('contact');
+      if (contactSection && contactSection.getBoundingClientRect().height > 0 && window.getComputedStyle(contactSection).display !== 'none') {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        var footerForm = document.querySelector('.ft-form-container');
+        if (footerForm) {
+          footerForm.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     });
   }
 

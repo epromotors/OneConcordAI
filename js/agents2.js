@@ -215,6 +215,15 @@
     delete heroEl.dataset.starsBuilt;
 
     heroEl.innerHTML = '\
+      <div class="ag-hero-stars-bg">\
+        <div class="price-stars price-stars-sm"></div>\
+        <div class="price-stars price-stars-md"></div>\
+        <div class="price-stars price-stars-lg"></div>\
+        <div class="pricing-globe-wrap">\
+          <div class="pricing-globe"></div>\
+          <div class="pricing-globe-glow"></div>\
+        </div>\
+      </div>\
       <div class="ag-hero-inner">\
         <div class="ag-hero-left">\
           <span class="section-label" style="justify-content:center; margin-bottom: 20px !important;">Agents</span>\
@@ -845,5 +854,16 @@
 
   /* Keep buildAgentExtras as a no-op (handled inside buildAgentGrid now) */
   window.buildAgentExtras = function() {};
+
+  // If page loads on Agents view, invoke grid builder immediately
+  if (document.body.getAttribute('data-page') === 'agents' || (window.location.hash === '#agents') || (typeof getStaticPageId === 'function' && getStaticPageId() === 'agents')) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        window.buildAgentGrid();
+      });
+    } else {
+      window.buildAgentGrid();
+    }
+  }
 
 })();

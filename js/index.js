@@ -340,7 +340,9 @@ function go(id) {
 
         overwrite: 'auto',
 
-        stagger: 0.08
+        stagger: 0.08,
+
+        clearProps: 'transform'
 
       });
 
@@ -505,7 +507,7 @@ function buildNav() {
 
 
 
-  ['Home|home','Platform|platform','Agents|agents','Solutions|solutions','Pricing|pricing','Contact us|contact'].forEach(function(pair){
+  ['Home|home','Platform|platform','Agents|agents','Solutions|solutions','Pricing|pricing','About Us|about','Contact us|contact'].forEach(function(pair){
 
     var parts = pair.split('|');
 
@@ -599,6 +601,7 @@ function buildNav() {
       { label: 'Agents', page: 'agents', desc: 'AI systems' },
       { label: 'Solutions', page: 'solutions', desc: 'Use cases' },
       { label: 'Pricing', page: 'pricing', desc: 'Plans' },
+      { label: 'About Us', page: 'about', desc: 'Who we are' },
       { label: 'Contact us', page: 'contact', desc: 'Get in touch' }
     ];
 
@@ -644,8 +647,8 @@ function buildNav() {
     ctaBlock.className = 'cta-block';
 
     var demoBtn = document.createElement('a');
-    demoBtn.className = 'button button-primary';
-    demoBtn.textContent = 'Book Demo';
+    demoBtn.className = 'button button-secondary';
+    demoBtn.textContent = 'Book a Demo';
     demoBtn.href = pageUrl('contact');
     demoBtn.onclick = function(e) {
       if (!isStaticPageMode() || getStaticPageId() === 'contact') {
@@ -656,8 +659,8 @@ function buildNav() {
     };
 
     var contactBtn = document.createElement('a');
-    contactBtn.className = 'button button-secondary';
-    contactBtn.textContent = 'Contact Sales';
+    contactBtn.className = 'button button-primary';
+    contactBtn.textContent = 'Get Started';
     contactBtn.href = pageUrl('contact');
     contactBtn.onclick = function(e) {
       if (!isStaticPageMode() || getStaticPageId() === 'contact') {
@@ -709,15 +712,7 @@ function buildNav() {
     btnRow.appendChild(demoBtn);
     btnRow.appendChild(contactBtn);
 
-    var loginBtn = document.createElement('a');
-    loginBtn.className = 'button button-secondary';
-    loginBtn.style.width = '100%';
-    loginBtn.textContent = 'Login / Sign Up';
-    loginBtn.href = 'https://demo.oneconcord.ai/';
-    loginBtn.target = '_blank';
-
     ctaBlock.appendChild(btnRow);
-    ctaBlock.appendChild(loginBtn);
     ctaBlock.appendChild(socialNav);
 
     mobLinks.appendChild(ctaBlock);
@@ -3576,7 +3571,9 @@ function buildSolutions(id, btn) {
 
       ease: 'power2.out',
 
-      stagger: 0.05
+      stagger: 0.05,
+
+      clearProps: 'transform'
 
     });
 
@@ -3603,89 +3600,118 @@ function buildPricing() {
 
 
   var plans = [
-
     {
-
       name: 'Essential',
-
       tier: 'Up to 100 users',
-
       amount: '$999',
-
       period: 'per month · annual billing',
-
       featured: false,
-
       btnClass: 'btn-outline',
-
       btnText: 'Start with Essential',
-
-      features: ['3 active agents','Up to 100 users','10 connectors included','Employee self-service portal','Full audit trail — 7-day retention','Email + Teams notifications','ISO 27001 & SOC 2 aligned','Standard SLA (next business day)']
-
+      features: [
+        '3 active agents',
+        'Up to 100 users',
+        '10 connectors',
+        'Employee self-service portal',
+        'Full audit trail — 7-day retention',
+        'Email + Teams notifications',
+        'Role-based access control',
+        'Data encrypted in transit & at rest',
+        'Standard SLA (next business day)'
+      ]
     },
-
     {
-
-      name: 'Professional',
-
-      tier: '100 – 500 users',
-
+      name: 'Growth',
+      tier: 'Up to 250 users',
       amount: '$1,999',
-
       period: 'per month · annual billing',
-
       featured: false,
-
       btnClass: 'btn-ghost',
-
-      btnText: 'Start with Professional',
-
-      features: ['6 active agents','Up to 500 users','20 connectors','Admin Console + policy editor','Full audit trail — 30-day retention','SSO (SAML / OIDC)','4-hour SLA for P1 incidents','ISO 27001 & SOC 2 aligned','GCC Cloud compliant']
-
+      btnText: 'Start with Growth',
+      features: [
+        '6 active agents',
+        'Up to 250 users',
+        '20 connectors',
+        'Everything in Essential, plus:',
+        'Admin Console + Agents Dashboard',
+        'Approval workflows',
+        'Slack notifications',
+        'Audit trail — 30-day retention',
+        '8-hour SLA for P1 incidents',
+        'API access + webhooks (standard rate limits)'
+      ]
     },
-
     {
-
-      name: 'Enterprise',
-
-      tier: '500 – 2,000 users',
-
-      amount: '$3,999',
-
+      name: 'Advance',
+      tier: 'Up to 500 users',
+      amount: '$2,999',
       period: 'per month · annual billing',
-
-      featured: true,
-
-      badge: 'Most popular',
-
-      btnClass: 'btn-primary',
-
-      btnText: 'Get Enterprise access',
-
-      features: ['9 active agents','Up to 2,000 users','30 connectors','All portal screens + Admin Console','Full audit trail — 90-day retention','SSO (SAML / OIDC) + MFA enforced','4-hour P1 / 8-hour P2 SLA','Dedicated customer success manager','ISO 27001 & SOC 2 aligned','GCC Cloud compliant · AWS region choice']
-
-    },
-
-    {
-
-      name: 'Enterprise Plus',
-
-      tier: '2,000+ users · Custom',
-
-      amount: 'Custom',
-
-      period: 'tailored deployment',
-
       featured: false,
-
-      btnClass: 'btn-gold',
-
-      btnText: 'Talk to our team',
-
-      features: ['All 12 agents + all connectors','Unlimited users','Single-tenant or private cloud','On-premises deployment available','Full audit trail — 1-year retention','Bring your own VPC (BYOVPC)','Custom LLM configuration','Dedicated security & architecture review','Custom SLAs and escalation paths','Compliance: Standard, Government Ready']
-
+      btnClass: 'btn-ghost',
+      btnText: 'Start with Advance',
+      features: [
+        '9 active agents',
+        'Up to 500 users',
+        '25 connectors',
+        'Everything in Growth, plus:',
+        'Audit trail — 60-day retention',
+        'SSO (SAML / OIDC) + MFA',
+        '4-hour SLA for P1 incidents',
+        'Priority support queue',
+        'Usage & activity reports',
+        'Agent performance analytics',
+        'Scheduled reports & exports (CSV / PDF)',
+        'Knowledge base + guided onboarding'
+      ]
     },
-
+    {
+      name: 'Scale',
+      tier: 'Up to 1,000 users',
+      amount: '$3,999',
+      period: 'per month · annual billing',
+      featured: true,
+      badge: 'Most popular',
+      btnClass: 'btn-primary',
+      btnText: 'Get Scale access',
+      features: [
+        '12 active agents',
+        'Up to 1,000 users',
+        '30 connectors',
+        'Everything in Advance, plus:',
+        'Audit trail — 90-day retention',
+        '4-hour P1 / 8-hour P2 SLA',
+        'Dedicated customer success manager',
+        'GCC Cloud compliant',
+        'AWS region choice',
+        'Custom dashboards & report builder',
+        'Executive summary reports (monthly / quarterly)',
+        'ROI & cost-savings reports'
+      ]
+    },
+    {
+      name: 'Enterprise',
+      tier: '1,000+ users · Custom',
+      amount: 'Custom',
+      period: 'tailored deployment',
+      featured: false,
+      btnClass: 'btn-gold',
+      btnText: 'Talk to our team',
+      features: [
+        '12 agents + custom agents',
+        '1,000+ users',
+        'All connectors + custom',
+        'Everything in Scale, plus:',
+        'Customizable UI/UX',
+        'Advanced analytics + BI integrations',
+        'Audit trail — 1-year retention',
+        'Custom identity federation',
+        'Custom SLAs and escalation paths',
+        'CSM + Solution Architect',
+        'Single-tenant, private cloud or on-premises',
+        'BYOVPC + custom LLM configuration',
+        'Compliance: Government Ready'
+      ]
+    }
   ];
 
 
@@ -3710,7 +3736,12 @@ function buildPricing() {
 
     }
 
-    var list = p.features.map(function(f) { return '<li>' + f + '</li>'; }).join('');
+    var list = p.features.map(function(f) {
+      if (f.indexOf('Everything in') === 0) {
+        return '<li class="p-segregation">' + f + '</li>';
+      }
+      return '<li>' + f + '</li>';
+    }).join('');
 
     card.innerHTML += '<div style="font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--text-3);margin-bottom:6px">' + p.tier + '</div>'
 
@@ -3730,7 +3761,18 @@ function buildPricing() {
 
     btn.textContent = p.btnText;
 
-    btn.onclick = function() { go('contact'); };
+    btn.onclick = function() {
+      if (p.name === 'Enterprise') {
+        // "Talk to our team" → open the same Book a Demo modal as the header CTA
+        if (typeof window.openBookDemoModal === 'function') {
+          window.openBookDemoModal();
+        } else {
+          go('contact');
+        }
+      } else {
+        go('contact');
+      }
+    };
 
     card.appendChild(btn);
 
@@ -3751,12 +3793,15 @@ function buildPricing() {
   // Helper render functions
 
   function check(gold) {
-
-    return '<span class="cmp-check' + (gold ? ' cmp-check-gold' : '') + '">✓</span>';
-
+    if (gold) {
+      return '<span class="check"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="#3a3113"/><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#f5c542" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+    }
+    return '<span class="check"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="#173730"/><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#35b58e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
   }
 
-  function dash() { return '<span class="cmp-dash"></span>'; }
+  function dash() {
+    return '<span class="dash">—</span>';
+  }
 
 
 
@@ -3765,91 +3810,68 @@ function buildPricing() {
   // Use check()/dash() or plain text
 
   var groups = [
-
     {
-
       label: 'Capacity',
-
       rows: [
-
-        ['Users', 'Up to 100', 'Up to 500', 'Up to 2,000', '2,000+ / Unlimited'],
-
-        ['Active Agents', '3', '6', '9', '12 + all'],
-
-        ['Connectors', '10', '20', '30', '70+'],
-
+        ['Users', 'Up to 100', 'Up to 250', 'Up to 500', 'Up to 1,000', '1,000+'],
+        ['Active Agents', '3', '6', '9', '12', '12 + custom'],
+        ['Connectors', '10', '20', '25', '30', 'All + custom'],
+        ['API access & webhooks', dash(), 'Standard limits', 'Standard limits', 'Higher limits', 'Custom limits']
       ]
-
     },
-
     {
-
       label: 'Platform',
-
       rows: [
-
-        ['Portal screens', 'Self-service', 'Admin + portal', 'All screens', 'All + custom'],
-
-        ['Audit trail retention', '7 days', '30 days', '90 days', '1 year'],
-
-        ['Admin Console', dash(), check(), check(), check()],
-
-        ['Custom LLM config', dash(), dash(), dash(), check(true)],
-
+        ['Employee self-service portal', check(), check(), check(), check(), check(true)],
+        ['Admin Console + Agents Dashboard', dash(), check(), check(), check(), check(true)],
+        ['Approval workflows', dash(), check(), check(), check(), check(true)],
+        ['Knowledge base + guided onboarding', dash(), dash(), check(), check(), check(true)],
+        ['Customizable UI/UX', dash(), dash(), dash(), dash(), check(true)],
+        ['Audit trail retention', '7 days', '30 days', '60 days', '90 days', '1 year'],
+        ['Notifications', 'Email + Teams', 'Email + Teams + Slack', 'Email + Teams + Slack', 'Email + Teams + Slack', 'Email + Teams + Slack'],
+        ['Custom LLM config', dash(), dash(), dash(), dash(), check(true)]
       ]
-
     },
-
     {
-
+      label: 'Reporting & Analytics',
+      rows: [
+        ['Usage & activity reports', dash(), dash(), check(), check(), check(true)],
+        ['Agent performance analytics', dash(), dash(), check(), check(), check(true)],
+        ['Scheduled reports & exports (CSV / PDF)', dash(), dash(), check(), check(), check(true)],
+        ['Custom dashboards & report builder', dash(), dash(), dash(), check(), check(true)],
+        ['Executive summary reports', dash(), dash(), dash(), check(), check(true)],
+        ['ROI & cost-savings reports', dash(), dash(), dash(), check(), check(true)],
+        ['Advanced analytics + BI integrations', dash(), dash(), dash(), dash(), check(true)]
+      ]
+    },
+    {
       label: 'Identity & Access',
-
       rows: [
-
-        ['SSO (SAML / OIDC)', dash(), check(), check(), check()],
-
-        ['MFA enforcement', 'Admins only', 'Admins only', 'All users', 'All users'],
-
-        ['BYOVPC / On-prem', dash(), dash(), dash(), check(true)],
-
-        ['Data residency', 'Shared cloud', 'Shared cloud', 'AWS region choice', 'BYOVPC / On-prem'],
-
+        ['Role-based access control', check(), check(), check(), check(), check(true)],
+        ['Data encryption (in transit & at rest)', check(), check(), check(), check(), check(true)],
+        ['SSO (SAML / OIDC)', dash(), dash(), check(), check(), check(true)],
+        ['MFA', 'Admins only', 'Admins only', 'All users', 'All users', 'All users'],
+        ['Custom identity federation', dash(), dash(), dash(), dash(), check(true)],
+        ['BYOVPC / On-prem', dash(), dash(), dash(), dash(), check(true)],
+        ['Data residency', 'Shared cloud', 'Shared cloud', 'Shared cloud', 'AWS region choice', 'BYOVPC / On-prem']
       ]
-
     },
-
     {
-
       label: 'Compliance',
-
       rows: [
-
-        ['GCC Cloud', dash(), check(), check(), check()],
-
-        ['ISO 27001 / SOC 2 aligned', check(), check(), check(), check()],
-
-        ['Private / sovereign cloud', dash(), dash(), dash(), check(true)],
-
+        ['GCC Cloud', dash(), dash(), dash(), check(), check(true)],
+        ['Government Ready', dash(), dash(), dash(), dash(), check(true)],
+        ['Private / sovereign cloud', dash(), dash(), dash(), dash(), check(true)]
       ]
-
     },
-
     {
-
       label: 'Support',
-
       rows: [
-
-        ['Support SLA', 'Next business day', '4h P1', '4h P1 / 8h P2', 'Custom SLAs'],
-
-        ['Customer success manager', dash(), dash(), 'Dedicated', 'Dedicated + SA'],
-
-        ['Security architecture review', dash(), dash(), dash(), check(true)],
-
+        ['Support SLA', 'Next business day', '8h P1', '4h P1', '4h P1 / 8h P2', 'Custom SLAs'],
+        ['Priority support queue', dash(), dash(), check(), check(), check(true)],
+        ['Customer success manager', dash(), dash(), dash(), 'Dedicated', 'CSM + Solution Architect']
       ]
-
     }
-
   ];
 
 
@@ -3858,19 +3880,20 @@ function buildPricing() {
 
   var wrap = document.createElement('div');
 
-  wrap.className = 'cmp-wrap fade-up';
-
-
-
-  var scroll = document.createElement('div');
-
-  scroll.className = 'cmp-scroll';
+  wrap.className = 'table-wrap fade-up';
 
 
 
   var table = document.createElement('table');
 
-  table.className = 'cmp-table';
+  table.innerHTML = '<colgroup>'
+    + '<col class="feature-col">'
+    + '<col class="plan-col">'
+    + '<col class="plan-col">'
+    + '<col class="plan-col">'
+    + '<col class="plan-col">'
+    + '<col class="plan-col">'
+    + '</colgroup>';
 
 
 
@@ -3879,17 +3902,22 @@ function buildPricing() {
   var thead = document.createElement('thead');
 
   thead.innerHTML = '<tr>'
-
-    + '<th style="text-align:left;vertical-align:middle;"><span style="font-size:12px;font-weight:700;color:var(--text-2);">Feature</span></th>'
-
-    + '<th><div class="cmp-th-plan"><span class="cmp-th-name">Essential</span><span class="cmp-th-price">$999</span><span class="cmp-th-tier">/ mo · up to 100 users</span></div></th>'
-
-    + '<th><div class="cmp-th-plan"><span class="cmp-th-name">Professional</span><span class="cmp-th-price">$1,999</span><span class="cmp-th-tier">/ mo · up to 500 users</span></div></th>'
-
-    + '<th class="th-ent"><div class="cmp-popular-badge">★ Most popular</div><div class="cmp-th-plan"><span class="cmp-th-name">Enterprise</span><span class="cmp-th-price">$3,999</span><span class="cmp-th-tier">/ mo · up to 2,000 users</span></div></th>'
-
-    + '<th class="th-sov"><div class="cmp-th-plan"><span class="cmp-th-name">Enterprise Plus</span><span class="cmp-th-price">Custom</span><span class="cmp-th-tier">2,000+ · tailored</span></div></th>'
-
+    + '<th class="feature-head">Plans</th>'
+    + '<th>'
+    + '  <div class="plan-name"><svg class="plan-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>Essential</div>'
+    + '</th>'
+    + '<th>'
+    + '  <div class="plan-name"><svg class="plan-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>Growth</div>'
+    + '</th>'
+    + '<th>'
+    + '  <div class="plan-name"><svg class="plan-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11l-5-5-5 5"/><path d="M17 18l-5-5-5 5"/></svg>Advance</div>'
+    + '</th>'
+    + '<th class="scale">'
+    + '  <div class="plan-name"><svg class="plan-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20v-8"/><path d="M12 20V4"/><path d="M18 20v-11"/></svg>Scale</div>'
+    + '</th>'
+    + '<th class="enterprise">'
+    + '  <div class="plan-name"><svg class="plan-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16"/><path d="M6 21V5a2 2 0 012-2h8a2 2 0 012 2v16"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1"/></svg>Enterprise</div>'
+    + '</th>'
     + '</tr>';
 
   table.appendChild(thead);
@@ -3908,9 +3936,9 @@ function buildPricing() {
 
     var gtr = document.createElement('tr');
 
-    gtr.className = 'cmp-group-row';
+    gtr.className = 'section-row';
 
-    gtr.innerHTML = '<td colspan="5">' + g.label + '</td>';
+    gtr.innerHTML = '<td colspan="6">' + g.label + '</td>';
 
     tbody.appendChild(gtr);
 
@@ -3921,24 +3949,24 @@ function buildPricing() {
     g.rows.forEach(function(r) {
 
       var tr = document.createElement('tr');
+      tr.className = 'feature-row';
 
-      var ess = r[1] === dash() || r[1] === check() || r[1] === check(true) ? r[1] : r[1];
+      var ess = r[1];
 
-      var pro = r[2];
+      var growth = r[2];
 
-      var ent = r[3];
+      var adv = r[3];
 
-      var plus = r[4];
+      var scale = r[4];
 
-      tr.innerHTML = '<td>' + r[0] + '</td>'
+      var ent = r[5];
 
-        + '<td style="color:var(--text-3)">' + ess + '</td>'
-
-        + '<td style="color:var(--text-2)">' + pro + '</td>'
-
-        + '<td class="td-ent">' + ent + '</td>'
-
-        + '<td class="td-sov">' + plus + '</td>';
+      tr.innerHTML = '<td class="feature-label">' + r[0] + '</td>'
+        + '<td>' + ess + '</td>'
+        + '<td>' + growth + '</td>'
+        + '<td>' + adv + '</td>'
+        + '<td class="scale">' + scale + '</td>'
+        + '<td class="enterprise">' + ent + '</td>';
 
       tbody.appendChild(tr);
 
@@ -3950,9 +3978,7 @@ function buildPricing() {
 
   table.appendChild(tbody);
 
-  scroll.appendChild(table);
-
-  wrap.appendChild(scroll);
+  wrap.appendChild(table);
 
   tableWrap.appendChild(wrap);
 
@@ -3979,14 +4005,11 @@ function buildPricing() {
   mobTabs.className = 'cmp-mobile-tabs';
 
   mobTabs.innerHTML = 
-
       '<button class="cmp-m-tab" onclick="switchMobileComparePlan(0, this)">Essential</button>'
-
-    + '<button class="cmp-m-tab" onclick="switchMobileComparePlan(1, this)">Professional</button>'
-
-    + '<button class="cmp-m-tab active" onclick="switchMobileComparePlan(2, this)">Enterprise</button>'
-
-    + '<button class="cmp-m-tab" onclick="switchMobileComparePlan(3, this)">Enterprise Plus</button>';
+    + '<button class="cmp-m-tab" onclick="switchMobileComparePlan(1, this)">Growth</button>'
+    + '<button class="cmp-m-tab" onclick="switchMobileComparePlan(2, this)">Advance</button>'
+    + '<button class="cmp-m-tab active" onclick="switchMobileComparePlan(3, this)">Scale</button>'
+    + '<button class="cmp-m-tab" onclick="switchMobileComparePlan(4, this)">Enterprise</button>';
 
   mobWrap.appendChild(mobTabs);
 
@@ -3994,7 +4017,7 @@ function buildPricing() {
 
   var mobList = document.createElement('div');
 
-  mobList.className = 'cmp-mobile-list';
+  mobList.className = 'cmp-mobile-list fade-up';
 
   mobList.id = 'cmpMobileList';
 
@@ -4006,9 +4029,9 @@ function buildPricing() {
 
 
 
-  // Initialize with Enterprise plan (index 2) active
+  // Initialize with Scale plan (index 3) active
 
-  switchMobileComparePlan(2);
+  switchMobileComparePlan(3);
 
 }
 
@@ -4042,9 +4065,9 @@ function switchMobileComparePlan(planIdx, tabEl) {
 
   // Smoothly scroll comparison container to top below header on click
   if (tabEl) {
-    var compareSec = document.querySelector('.compare-container');
+    var compareSec = document.getElementById('compareTable');
     if (compareSec) {
-      var headerOffset = 85;
+      var headerOffset = 76;
       var elementPosition = compareSec.getBoundingClientRect().top;
       var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
       window.scrollTo({
@@ -4210,7 +4233,7 @@ function initFades() {
 
       trigger: el, start: 'top 88%', once: true,
 
-      onEnter: () => gsap.to(el, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: parseFloat(el.style.animationDelay || 0) })
+      onEnter: () => gsap.to(el, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: parseFloat(el.style.animationDelay || 0), clearProps: 'transform' })
 
     });
 
@@ -4270,7 +4293,7 @@ function initCards() {
 
       ScrollTrigger.create({ trigger: card, start: 'top 85%', once: true,
 
-        onEnter: () => gsap.to(card, { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' })
+        onEnter: () => gsap.to(card, { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out', clearProps: 'transform' })
 
       });
 
@@ -5619,7 +5642,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-  // 3. Initialize visual enhancements and triggers safely
+  // 3. Mobile Floating Action Dock has been replaced by mob-float-bar in modal.js
+
+  // 4. Initialize visual enhancements and triggers safely
 
   lucide.createIcons();
 

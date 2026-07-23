@@ -105,12 +105,18 @@ function admin_html_template(array $data, string $kind, string $ipHash): string 
     $name        = htmlspecialchars(trim($data['first_name'] . ' ' . $data['last_name'] . ' ' . $data['name']));
     $email       = htmlspecialchars($data['email']);
     $phone       = htmlspecialchars($data['phone']);
+    $company     = htmlspecialchars($data['company'] ?? '');
+    $users       = htmlspecialchars($data['users'] ?? '');
     $companySize = htmlspecialchars($data['company_size']);
     $interest    = htmlspecialchars($data['interest']);
     $subject     = htmlspecialchars($data['subject']);
     $message     = nl2br(htmlspecialchars($data['message']));
     $pageUrl     = htmlspecialchars($data['page_url']);
     $submitted   = gmdate('Y-m-d H:i:s') . ' UTC';
+
+    $phoneHtml   = $phone !== '' ? '<div style="font-size:14px;color:#94a3b8;margin-top:2px;">Phone: ' . $phone . '</div>' : '';
+    $companyHtml = $company !== '' ? '<div style="font-size:14px;color:#94a3b8;margin-top:2px;">Company: ' . $company . '</div>' : '';
+    $usersHtml   = $users !== '' ? '<div style="font-size:14px;color:#94a3b8;margin-top:2px;">Users: ' . $users . '</div>' : '';
 
     $typeLabel = [
         'contact' => 'Contact Message',
@@ -149,7 +155,9 @@ function admin_html_template(array $data, string $kind, string $ipHash): string 
                   <div style="font-size:11px;font-weight:700;color:#B5F2DB;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Contact</div>
                   <div style="font-size:17px;font-weight:700;color:#fff;">{$name}</div>
                   <div style="font-size:14px;color:#94a3b8;margin-top:2px;"><a href="mailto:{$email}" style="color:#B5F2DB;text-decoration:none;">{$email}</a></div>
-                  {$phone}
+                  {$phoneHtml}
+                  {$companyHtml}
+                  {$usersHtml}
                 </td>
               </tr>
               <tr><td style="border-top:1px solid #1e3040;padding:16px 0 0;"></td></tr>
@@ -265,20 +273,34 @@ function admin_text_template(array $data, string $kind, string $ipHash): string 
         'Type         : ' . strtoupper($kind),
         'Name         : ' . $name,
         'Email        : ' . $data['email'],
-        'Phone        : ' . $data['phone'],
-        'Company size : ' . $data['company_size'],
-        'Interest     : ' . $data['interest'],
-        'Subject      : ' . $data['subject'],
-        '',
-        'Message:',
-        '───────',
-        $data['message'],
-        '',
-        '───────────────────────────────',
-        'Page      : ' . $data['page_url'],
-        'Submitted : ' . gmdate('Y-m-d H:i:s') . ' UTC',
-        'IP hash   : ' . $ipHash,
     ];
+    if (($data['phone'] ?? '') !== '') {
+        $lines[] = 'Phone        : ' . $data['phone'];
+    }
+    if (($data['company'] ?? '') !== '') {
+        $lines[] = 'Company      : ' . $data['company'];
+    }
+    if (($data['users'] ?? '') !== '') {
+        $lines[] = 'Users        : ' . $data['users'];
+    }
+    if (($data['company_size'] ?? '') !== '') {
+        $lines[] = 'Company size : ' . $data['company_size'];
+    }
+    if (($data['interest'] ?? '') !== '') {
+        $lines[] = 'Interest     : ' . $data['interest'];
+    }
+    if (($data['subject'] ?? '') !== '') {
+        $lines[] = 'Subject      : ' . $data['subject'];
+    }
+    $lines[] = '';
+    $lines[] = 'Message:';
+    $lines[] = '───────';
+    $lines[] = $data['message'];
+    $lines[] = '';
+    $lines[] = '───────────────────────────────';
+    $lines[] = 'Page      : ' . $data['page_url'];
+    $lines[] = 'Submitted : ' . gmdate('Y-m-d H:i:s') . ' UTC';
+    $lines[] = 'IP hash   : ' . $ipHash;
     return implode("\n", $lines);
 }
 
@@ -441,6 +463,8 @@ $data = [
     'name'         => clean_string($payload['name'] ?? '', 120),
     'email'        => clean_email($payload['email'] ?? ''),
     'phone'        => clean_string($payload['phone'] ?? '', 40),
+    'company'      => clean_string($payload['company'] ?? '', 120),
+    'users'        => clean_string($payload['users'] ?? '', 40),
     'company_size' => clean_string($payload['company_size'] ?? '', 80),
     'interest'     => clean_string($payload['interest'] ?? '', 120),
     'subject'      => clean_string($payload['subject'] ?? '', 160),

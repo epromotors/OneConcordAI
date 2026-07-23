@@ -1,0 +1,149 @@
+/* iPhone pricing carousel only. Desktop and tablet layouts retain their existing grid. */
+@media only screen and (max-width: 480px) {
+  #pg-pricing {
+    --pricing-mobile-header-offset: 74px;
+  }
+
+  #pg-pricing .plan-header[data-pricing-mobile-controls] {
+    position: sticky;
+    z-index: 24;
+    top: var(--pricing-mobile-header-offset);
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+    align-items: end;
+    gap: 8px;
+    width: 100vw;
+    margin: 0 0 18px;
+    margin-left: calc(50% - 50vw);
+    padding: 10px 16px 12px;
+    background: rgba(14, 24, 37, 0.94);
+    border-top: 1px solid rgba(127, 224, 191, 0.12);
+    border-bottom: 1px solid rgba(127, 224, 191, 0.2);
+    box-shadow: 0 12px 24px rgba(4, 13, 20, 0.28);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  #pg-pricing .plan-header[data-pricing-mobile-controls] .billing-wrap {
+    min-width: 0;
+    text-align: center;
+  }
+
+  #pg-pricing .plan-header[data-pricing-mobile-controls] .billing-headline {
+    margin-bottom: 6px;
+    font-size: 10px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  #pg-pricing .plan-header[data-pricing-mobile-controls] .billing-toggle {
+    display: flex;
+    width: 100%;
+    padding: 3px;
+  }
+
+  #pg-pricing .plan-header[data-pricing-mobile-controls] .bt-opt {
+    flex: 1;
+    min-width: 0;
+    padding: 7px 5px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  #pg-pricing .pricing-carousel-arrow {
+    display: inline-grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    margin-bottom: 0;
+    padding: 0;
+    color: var(--mint);
+    background: rgba(38, 53, 52, 0.92);
+    border: 1px solid rgba(127, 224, 191, 0.35);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 160ms ease, color 160ms ease, border-color 160ms ease, opacity 160ms ease;
+  }
+
+  #pg-pricing .pricing-carousel-arrow svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #pg-pricing .pricing-carousel-arrow:disabled {
+    opacity: 0.34;
+    cursor: not-allowed;
+  }
+
+  #pg-pricing .pricing-carousel-arrow:not(:disabled):active {
+    color: #0e3b2e;
+    background: var(--mint);
+    border-color: var(--mint);
+  }
+
+  #pg-pricing .pricing-carousel-arrow:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  #pricingGrid {
+    width: 100%;
+  }
+
+  #pg-pricing .pricing-grid {
+    display: block;
+    max-width: none;
+    margin: 0;
+  }
+
+  #pg-pricing .mobile-plan-rail {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    padding: 3px 22px 8px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 22px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #pg-pricing .mobile-plan-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  #pg-pricing .mobile-plan-rail > .card[data-plan] {
+    flex: 0 0 calc(100vw - 44px);
+    min-height: 100%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  #pg-pricing .pricing-grid > .card.calc-card {
+    display: flex;
+    width: calc(100% - 32px);
+    max-width: none;
+    margin: 24px auto 0;
+  }
+
+  #pg-pricing .mobile-plan-rail > .card.recommended {
+    border-color: var(--mint);
+    box-shadow: 0 0 0 1px rgba(127, 224, 191, 0.22), 0 18px 34px rgba(4, 13, 20, 0.25);
+  }
+}
+
+@media only screen and (min-width: 481px) {
+  #pg-pricing .pricing-carousel-arrow {
+    display: none;
+  }
+
+  #pg-pricing .mobile-plan-rail {
+    display: contents;
+  }
+}
