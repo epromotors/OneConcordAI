@@ -593,18 +593,67 @@
       }
     });
 
-    // Wire up Message button to scroll to contact section
+    // Wire up Message button to scroll to contact section cleanly on mobile without stalling
     document.getElementById('mobFloatMsg').addEventListener('click', function(e) {
       e.preventDefault();
-      var contactSection = document.getElementById('contact');
-      if (contactSection && contactSection.getBoundingClientRect().height > 0 && window.getComputedStyle(contactSection).display !== 'none') {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        var footerForm = document.querySelector('.ft-form-container');
-        if (footerForm) {
-          footerForm.scrollIntoView({ behavior: 'smooth' });
+
+      // Find the best visible target element for the contact form
+      var targetEl = document.querySelector('.ft-form-container');
+      if (!targetEl || targetEl.getBoundingClientRect().height === 0 || window.getComputedStyle(targetEl).display === 'none') {
+        var pgContact = document.getElementById('pg-contact');
+        if (pgContact && window.getComputedStyle(pgContact).display !== 'none') {
+          targetEl = pgContact;
+        } else {
+          targetEl = document.getElementById('contact');
         }
       }
+
+      if (!targetEl) return;
+
+      // Helper to calculate target Y position in current layout
+      function getTargetY() {
+        var rect = targetEl.getBoundingClientRect();
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        // Offset by 20px so top of container is comfortably padded from top of viewport
+        return Math.max(0, rect.top + scrollTop - 20);
+      }
+
+      var startY = window.pageYOffset || document.documentElement.scrollTop;
+      var targetY = getTargetY();
+      var distance = targetY - startY;
+
+      // If already at or very near target, jump directly
+      if (Math.abs(distance) < 15) {
+        window.scrollTo(0, targetY);
+        return;
+      }
+
+      var startTime = null;
+      // Dynamic duration based on distance (400ms to 700ms)
+      var duration = Math.min(700, Math.max(400, Math.abs(distance) * 0.2));
+
+      function step(currentTime) {
+        if (!startTime) startTime = currentTime;
+        var timeElapsed = currentTime - startTime;
+        var progress = Math.min(timeElapsed / duration, 1);
+
+        // Ease-out cubic formula
+        var ease = 1 - Math.pow(1 - progress, 3);
+
+        // Dynamically compute target Y on every frame in case mobile address bar collapse altered layout height
+        var currentTargetY = getTargetY();
+        var currentDistance = currentTargetY - startY;
+
+        window.scrollTo(0, startY + currentDistance * ease);
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          window.scrollTo(0, getTargetY());
+        }
+      }
+
+      requestAnimationFrame(step);
     });
   }
 
