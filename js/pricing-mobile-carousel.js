@@ -41,7 +41,15 @@
     function move(direction) {
       if (!mobileQuery.matches) return;
       var targetIndex = Math.max(0, Math.min(cards.length - 1, activeIndex() + direction));
-      cards[targetIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      var targetCard = cards[targetIndex];
+      var targetLeft = targetCard.offsetLeft - ((rail.clientWidth - targetCard.offsetWidth) / 2);
+
+      // Scroll the card rail directly. `scrollIntoView` can also move the page
+      // vertically when the Estimate card is in view.
+      rail.scrollTo({
+        left: Math.max(0, Math.min(targetLeft, rail.scrollWidth - rail.clientWidth)),
+        behavior: 'smooth'
+      });
     }
 
     previous.addEventListener('click', function () { move(-1); });
